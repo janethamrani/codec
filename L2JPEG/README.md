@@ -1565,5 +1565,6 @@ INFO: bas_info->hls_mbs[cmp] 4, 1, 1
 Please open the YUV file with fmt 1 and (width, height) = (624, 528) 
 WARNING: t0.yuv.h will be opened for binary write.
 Ready for next image!
-
 ```
+#### YUV File
+![output](https://user-images.githubusercontent.com/26263012/215358401-ad68f9d0-c7f3-4682-9971-6a047879dde9.png)
