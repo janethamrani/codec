@@ -1486,3 +1486,84 @@ INFO: [HW-EMU 06-0] Waiting for the simulator process to exit
 INFO: [HW-EMU 06-1] All the simulator processes exited successfully
 
 ```
+#### HW Run
+```sh
+------------ Test for decode image.jpg  -------------
+WARNING: /home/janethamrani/Vitis_Libraries/codec/L2/demos/jpegDec/images/t0.jpg will be opened for binary read.
+51193 entries read from /home/janethamrani/Vitis_Libraries/codec/L2/demos/jpegDec/images/t0.jpg
+Found Platform
+Platform Name: Xilinx
+Info: Context created
+Info: Command queue created
+INFO: Found Device=xilinx_u280_xdma_201920_3
+INFO: Importing build_dir.hw.xilinx_u280_xdma_201920_3/kernelJpegDecoder.xclbin
+Loading: 'build_dir.hw.xilinx_u280_xdma_201920_3/kernelJpegDecoder.xclbin'
+Info: Program created
+INFO: Kernel has been created
+Info: Kernel created
+INFO: Kernel has been created
+INFO: Finish kernel setup
+INFO: Finish kernel execution
+INFO: Finish E2E execution
+-------------------------------------------------------
+INFO: Data transfer from host to device: 80 us
+-------------------------------------------------------
+INFO: Data transfer from device to host: 8864 us
+-------------------------------------------------------
+INFO: kernel 0: execution time 672 usec
+INFO: kernel 1: execution time 687 usec
+INFO: kernel 2: execution time 674 usec
+INFO: kernel 3: execution time 709 usec
+INFO: kernel 4: execution time 680 usec
+INFO: kernel 5: execution time 686 usec
+INFO: kernel 6: execution time 673 usec
+INFO: kernel 7: execution time 644 usec
+INFO: kernel 8: execution time 670 usec
+INFO: kernel 9: execution time 685 usec
+INFO: Average kernel execution per run: 678 us
+-------------------------------------------------------
+INFO: Average E2E per run: 4535174 us
+-------------------------------------------------------
+Info: Test passed
+INFO: writing the YUV file!
+WARNING: t0.raw will be opened for binary write.
+WARNING: t0.yuv will be opened for binary write.
+INFO: fmt 1, bas_info->mcu_cmp = 6 
+INFO: bas_info->hls_mbs[cmp] 4, 1, 1 
+3F, 3F, 3F, 3F, 3F, 3F, 3F, 3F, 
+3F, 3F, 3F, 3F, 3F, 3F, 3F, 3F, 
+3F, 3F, 3F, 3F, 3F, 3F, 3F, 3F, 
+3F, 3F, 3E, 3E, 3E, 3E, 3E, 3E, 
+3D, 3E, 3E, 3E, 3F, 3F, 3F, 3F, 
+3F, 3F, 3F, 3F, 40, 40, 40, 40, 
+40, 40, 40, 40, 40, 40, 40, 40, 
+3F, 3F, 3F, 3F, 3F, 3F, 3F, 3F, 
+3E, 3E, 3E, 3E, 3E, 3E, 3E, 3E, 
+40, 40, 40, 40, 40, 40, 40, 40, 
+3F, 40, 40, 40, 40, 40, 40, 40, 
+40, 40, 40, 40, 40, 3F, 3F, 3F, 
+41, 41, 40, 40, 3F, 40, 40, 40, 
+40, 40, 40, 41, 41, 41, 41, 41, 
+41, 41, 41, 41, 41, 41, 41, 41, 
+40, 40, 40, 41, 41, 41, 41, 41, 
+63, 63, 63, 63, 63, 63, 63, 63, 
+63, 63, 63, 63, 63, 63, 63, 63, 
+63, 63, 63, 63, 63, 63, 63, 63, 
+63, 63, 62, 62, 62, 62, 62, 62, 
+61, 62, 62, 62, 63, 63, 63, 63, 
+63, 63, 63, 63, 64, 64, 64, 64, 
+64, 64, 64, 64, 64, 64, 64, 64, 
+63, 63, 63, 63, 63, 63, 63, 63, 
+62, 62, 62, 62, 62, 62, 62, 62, 
+64, 64, 64, 64, 64, 64, 64, 64, 
+63, 64, 64, 64, 64, 64, 64, 64, 
+64, 64, 64, 64, 64, 63, 63, 63, 
+65, 65, 64, 64, 63, 64, 64, 64, 
+64, 64, 64, 65, 65, 65, 65, 65, 
+65, 65, 65, 65, 65, 65, 65, 65, 
+64, 64, 64, 65, 65, 65, 65, 65, 
+Please open the YUV file with fmt 1 and (width, height) = (624, 528) 
+WARNING: t0.yuv.h will be opened for binary write.
+Ready for next image!
+
+```
