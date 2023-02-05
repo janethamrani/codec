@@ -646,3 +646,522 @@ Makefile:294: recipe for target 'run' failed
 make: *** [run] Error 139
 
 ```
+### Kernel Estimate
+```sh
+===============================================================================
+Version:    v++ v2021.2 (64-bit)
+Build:      SW Build 3363252 on 2021-10-14-04:41:01
+Copyright:  Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+Created:    Sun Feb  5 10:35:14 2023
+===============================================================================
+
+-------------------------------------------------------------------------------
+Design Name:             JxlEnc_lossy_enc_compute
+Target Device:           xilinx:u280:xdma:201920.3
+Target Clock:            300.000000MHz
+Total number of kernels: 1
+-------------------------------------------------------------------------------
+
+Kernel Summary
+Kernel Name               Type  Target              OpenCL Library            Compute Units
+------------------------  ----  ------------------  ------------------------  -------------
+JxlEnc_lossy_enc_compute  c     fpga0:OCL_REGION_0  JxlEnc_lossy_enc_compute  1
+
+
+-------------------------------------------------------------------------------
+OpenCL Binary:     JxlEnc_lossy_enc_compute
+Kernels mapped to: clc_region
+
+Timing Information (MHz)
+Compute Unit                Kernel Name               Module Name                                                                                         Target Frequency  Estimated Frequency
+--------------------------  ------------------------  --------------------------------------------------------------------------------------------------  ----------------  -------------------
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  JxlEnc_lossy_enc_compute_Pipeline_VITIS_LOOP_5346_1_VITIS_LOOP_5347_2                               300.300293        424.448242
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  entry_proc106                                                                                       300.300293        821.692688
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_lossy_enc_compute_dataflow_Block_split13_proc                                                   300.300293        737.463135
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  GetSourceSize_Pipeline_LOOP_0_LOOP_1                                                                300.300293        445.831482
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  GetSourceSize                                                                                       300.300293        411.015198
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  load_rqf_mask_Pipeline_LOOP_2                                                                       300.300293        411.015198
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  load_rqf_mask                                                                                       300.300293        411.015198
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  load_dct8_pixel_Pipeline_loop_load_dct8_pixel_VITIS_LOOP_4449_1                                     300.300293        411.015198
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  load_dct8_pixel                                                                                     300.300293        411.015198
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  load_dct16_pixel_Pipeline_loop_load_dct16_pixel_VITIS_LOOP_4467_1                                   300.300293        411.015198
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  load_dct16_pixel                                                                                    300.300293        411.015198
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  load_dct32_pixel_Pipeline_loop_load_dct32_pixel_VITIS_LOOP_4485_1                                   300.300293        411.015198
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  load_dct32_pixel                                                                                    300.300293        411.015198
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  GetRectSizeDCT_Pipeline_VITIS_LOOP_7188_1                                                           300.300293        821.692688
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  GetRectSizeDCT                                                                                      300.300293        479.616302
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  entry_proc104                                                                                       300.300293        821.692688
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  load_b64                                                                                            300.300293        475.737396
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_DCT1DImpl_8x8_1                                                                                 300.300293        426.985474
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_TransposeBlock8_1                                                                               300.300293        430.663208
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_DCT1DImpl_8x8                                                                                   300.300293        426.985474
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_TransposeBlock8                                                                                 300.300293        430.663208
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  split_ac_dc_dct8_Pipeline_VITIS_LOOP_5842_1_VITIS_LOOP_5843_2                                       300.300293        418.060211
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  split_ac_dc_dct8                                                                                    300.300293        418.060211
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  feed_ac_dct8_Pipeline_hls_feed_b64_VITIS_LOOP_5864_1                                                300.300293        418.585205
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  feed_ac_dct8                                                                                        300.300293        418.585205
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  feed_dc_dct8_Pipeline_hls_feed_b64_VITIS_LOOP_5888_1                                                300.300293        475.737396
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  feed_dc_dct8                                                                                        300.300293        475.737396
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dataflow_in_loop_VITIS_LOOP_5952_4                                                                  300.300293        418.060211
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dataflow_parent_loop_proc                                                                           300.300293        418.060211
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dataflow_parent_loop_proc66                                                                         300.300293        418.060211
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dataflow_parent_loop_proc67                                                                         300.300293        418.060211
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dataflow_parent_loop_proc72                                                                         300.300293        418.060211
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dataflow_parent_loop_proc73                                                                         300.300293        418.060211
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_dct8x8_module                                                                                   300.300293        411.015198
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  entry_proc103                                                                                       300.300293        821.692688
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dct16_test_load                                                                                     300.300293        497.512451
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  transposeDct16                                                                                      300.300293        418.060211
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_dct16_block_1                                                                                   300.300293        376.931763
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  transposeDct16_scale_1                                                                              300.300293        430.663208
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_dct16_block                                                                                     300.300293        376.931763
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  transposeDct16_scale                                                                                300.300293        430.663208
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dct16_ac_dc_split_Pipeline_VITIS_LOOP_6393_1                                                        300.300293        500.500488
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dct16_ac_dc_split                                                                                   300.300293        500.500488
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dct16_ac_writeout_Pipeline_VITIS_LOOP_6358_1                                                        300.300293        418.585205
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dct16_ac_writeout                                                                                   300.300293        418.585205
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_ReinterpretingIDCT16                                                                            300.300293        426.985474
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dct16_dc_writeout_Pipeline_VITIS_LOOP_6379_1                                                        300.300293        418.585205
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dct16_dc_writeout                                                                                   300.300293        418.585205
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dataflow_in_loop_VITIS_LOOP_6462_5                                                                  300.300293        376.931763
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dataflow_parent_loop_proc63                                                                         300.300293        376.931763
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dataflow_parent_loop_proc64                                                                         300.300293        376.931763
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dataflow_parent_loop_proc69                                                                         300.300293        376.931763
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dataflow_parent_loop_proc70                                                                         300.300293        376.931763
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dataflow_parent_loop_proc75                                                                         300.300293        376.931763
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_dct16x16_module                                                                                 300.300293        376.931763
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  entry_proc                                                                                          300.300293        821.692688
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  load_dct32                                                                                          300.300293        498.753082
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_DCT1DImpl_32_1                                                                                  300.300293        341.880341
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  scaled_dct32                                                                                        300.300293        430.663208
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  transpose_dct32                                                                                     300.300293        416.666656
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_DCT1DImpl_32                                                                                    300.300293        341.880341
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  transpose_scaled_dct32                                                                              300.300293        430.663208
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  split_ac_dc_dct32                                                                                   300.300293        416.666656
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  feed_dct32_ac_Pipeline_loop_feed_dct32_ac                                                           300.300293        417.885529
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  feed_dct32_ac                                                                                       300.300293        417.885529
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_idct32_scale_2d                                                                                 300.300293        430.663208
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_IDCT1D_32_1                                                                                     300.300293        426.985474
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_idct_transpose4x4                                                                               300.300293        443.06601
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_IDCT1D_32                                                                                       300.300293        426.985474
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  feed_dct32_dc_Pipeline_loop_feed_dct32_dc                                                           300.300293        528.54126
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  feed_dct32_dc                                                                                       300.300293        528.54126
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dataflow_in_loop_VITIS_LOOP_7127_4                                                                  300.300293        341.880341
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dataflow_parent_loop_proc62                                                                         300.300293        341.880341
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dataflow_parent_loop_proc65                                                                         300.300293        341.880341
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dataflow_parent_loop_proc68                                                                         300.300293        341.880341
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dataflow_parent_loop_proc71                                                                         300.300293        341.880341
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dataflow_parent_loop_proc74                                                                         300.300293        341.880341
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_dct32x32_module                                                                                 300.300293        341.880341
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_lossy_enc_compute_dataflow_Block_split1326_proc                                                 300.300293        426.985474
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  GetACSSize_Pipeline_LOOP_0_LOOP_1                                                                   300.300293        411.015198
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  GetACSSize                                                                                          300.300293        411.015198
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  DupQuantAndMask_Pipeline_DUP_1_DUP_2                                                                300.300293        430.663208
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  DupQuantAndMask                                                                                     300.300293        430.663208
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  DupDCT_1_Pipeline_LOOP_1_LOOP_3_LOOP_4                                                              300.300293        419.111511
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  DupDCT_1_s                                                                                          300.300293        411.015198
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  DupDCT_2_Pipeline_LOOP_3_LOOP_4                                                                     300.300293        419.111511
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  DupDCT_2_s                                                                                          300.300293        411.015198
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  DupDCT_4_Pipeline_LOOP_3_LOOP_4                                                                     300.300293        419.111511
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  DupDCT_4_s                                                                                          300.300293        411.015198
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  GetQAndMask_8_Pipeline_LOOP_1_LOOP_2                                                                300.300293        430.663208
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  GetQAndMask_8                                                                                       300.300293        411.015198
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  ComputeEntropy1_1_Pipeline_LOOP_1_LOOP_3_LOOP_4                                                     300.300293        411.861633
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  ComputeEntropy1_1_s                                                                                 300.300293        411.015198
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  ComputeEntropy3_1_Pipeline_1                                                                        300.300293        959.692871
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  ComputeEntropy3_1_Pipeline_VITIS_LOOP_7821_1                                                        300.300293        426.985474
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  ComputeEntropy3_1_s                                                                                 300.300293        376.931763
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  GetQAndMask_16_32_2_Pipeline_LOOP_2                                                                 300.300293        418.585205
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  GetQAndMask_16_32_2_Pipeline_LOOP_6                                                                 300.300293        426.985474
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  GetQAndMask_16_32_2_Pipeline_LOOP_7                                                                 300.300293        435.54007
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  GetQAndMask_16_32_2_s                                                                               300.300293        411.015198
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  ComputeEntropy1_2_Pipeline_LOOP_3_LOOP_4                                                            300.300293        424.088196
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  ComputeEntropy1_2_s                                                                                 300.300293        411.015198
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  ComputeEntropy3_2_Pipeline_1                                                                        300.300293        959.692871
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  ComputeEntropy3_2_Pipeline_VITIS_LOOP_7821_1                                                        300.300293        426.985474
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  ComputeEntropy3_2_s                                                                                 300.300293        379.794922
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  GetQAndMask_16_32_4_Pipeline_LOOP_2                                                                 300.300293        418.585205
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  GetQAndMask_16_32_4_Pipeline_LOOP_6                                                                 300.300293        426.985474
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  GetQAndMask_16_32_4_Pipeline_LOOP_7                                                                 300.300293        435.54007
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  GetQAndMask_16_32_4_s                                                                               300.300293        411.015198
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  ComputeEntropy1_4_Pipeline_LOOP_3_LOOP_4                                                            300.300293        424.088196
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  ComputeEntropy1_4_s                                                                                 300.300293        411.015198
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  ComputeEntropy3_4_Pipeline_1                                                                        300.300293        959.692871
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  ComputeEntropy3_4_Pipeline_VITIS_LOOP_7821_1                                                        300.300293        426.985474
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  ComputeEntropy3_4_s                                                                                 300.300293        379.794922
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  CompareEntropy_Pipeline_1                                                                           300.300293        748.502991
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  CompareEntropy                                                                                      300.300293        411.015198
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  BufferN_1_Pipeline_LOOP_1_LOOP_3_LOOP_4_LOOP_5                                                      300.300293        449.640289
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  BufferN_1_s                                                                                         300.300293        449.640289
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  BufferN_2_Pipeline_LOOP_1_LOOP_3_LOOP_4_LOOP_5                                                      300.300293        425.713074
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  BufferN_2_s                                                                                         300.300293        425.713074
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  BufferN_4_Pipeline_LOOP_1_LOOP_3_LOOP_4_LOOP_5                                                      300.300293        449.438232
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  BufferN_4_s                                                                                         300.300293        449.438232
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  Reorder_Pipeline_LOOP_10_LOOP_11_LOOP_12                                                            300.300293        441.501068
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  Reorder_Pipeline_LOOP_5_LOOP_6_LOOP_7                                                               300.300293        441.501068
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  Reorder_Pipeline_LOOP_13_LOOP_14_LOOP_15                                                            300.300293        413.907318
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  Reorder                                                                                             300.300293        411.015198
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  SetQuantField_Pipeline_LOOP_1_LOOP_2                                                                300.300293        414.421875
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  SetQuantField_Pipeline_LOOP_5_LOOP_6                                                                300.300293        428.082184
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  SetQuantField                                                                                       300.300293        414.421875
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_CFLComputeTile_Pipeline_VITIS_LOOP_4959_3                                                       300.300293        413.736023
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_CFLComputeTile                                                                                  300.300293        411.015198
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_ComputeCoefficients_Pipeline_VITIS_LOOP_5111_3                                                  300.300293        376.931763
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_ComputeCoefficients                                                                             300.300293        376.931763
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  count_numzeros_Pipeline_VITIS_LOOP_5389_2_VITIS_LOOP_5390_3                                         300.300293        439.174347
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  count_numzeros                                                                                      300.300293        411.015198
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  GetDCSize_Pipeline_LOOP_0_LOOP_1                                                                    300.300293        411.015198
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  GetDCSize                                                                                           300.300293        411.015198
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dc_8x8_writeout_Pipeline_VITIS_LOOP_4595_2_VITIS_LOOP_4596_3_VITIS_LOOP_4597_4                      300.300293        411.015198
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dc_8x8_writeout                                                                                     300.300293        411.015198
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dc_16x16_writeout_Pipeline_VITIS_LOOP_4648_3_VITIS_LOOP_4650_5_VITIS_LOOP_4651_6_VITIS_LOOP_4652_7  300.300293        411.015198
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dc_16x16_writeout                                                                                   300.300293        411.015198
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dc_32x32_writeout_Pipeline_VITIS_LOOP_4718_3_VITIS_LOOP_4720_5_VITIS_LOOP_4721_6_VITIS_LOOP_4722_7  300.300293        411.015198
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dc_32x32_writeout                                                                                   300.300293        411.015198
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  cfl_writeout_Pipeline_VITIS_LOOP_4825_1                                                             300.300293        411.015198
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  cfl_writeout                                                                                        300.300293        411.015198
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  ac_coeff_writeout_Pipeline_VITIS_LOOP_4560_1                                                        300.300293        411.015198
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  ac_coeff_writeout                                                                                   300.300293        411.015198
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  acs_rqf_writeout_Pipeline_LOOP_6                                                                    300.300293        411.015198
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  acs_rqf_writeout                                                                                    300.300293        411.015198
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_lossy_enc_compute_dataflow                                                                      300.300293        341.880341
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  entry_proc105                                                                                       300.300293        821.692688
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  load_nz2strm_Pipeline_VITIS_LOOP_5459_2_VITIS_LOOP_5460_3                                           300.300293        300.029999
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  load_nz2strm                                                                                        300.300293        300.029999
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_sort_8_Pipeline_VITIS_LOOP_5279_2                                                               300.300293        258.933197
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_sort_8_s                                                                                        300.300293        258.933197
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_sort_top                                                                                        300.300293        258.933197
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  order_writeout_Pipeline_VITIS_LOOP_5519_2_VITIS_LOOP_5520_3                                         300.300293        411.015198
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  order_writeout                                                                                      300.300293        411.015198
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  order_finalize_dataflow                                                                             300.300293        258.933197
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  JxlEnc_lossy_enc_compute                                                                            300.300293        258.933197
+
+Latency Information
+Compute Unit                Kernel Name               Module Name                                                                                         Start Interval    Best (cycles)  Avg (cycles)  Worst (cycles)  Best (absolute)  Avg (absolute)  Worst (absolute)
+--------------------------  ------------------------  --------------------------------------------------------------------------------------------------  ----------------  -------------  ------------  --------------  ---------------  --------------  ----------------
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  JxlEnc_lossy_enc_compute_Pipeline_VITIS_LOOP_5346_1_VITIS_LOOP_5347_2                               973               973            973           973             3.243 us         3.243 us        3.243 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  entry_proc106                                                                                       0                 0              0             0               0 ns             0 ns            0 ns
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_lossy_enc_compute_dataflow_Block_split13_proc                                                   4                 4              4             4               13.332 ns        13.332 ns       13.332 ns
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  GetSourceSize_Pipeline_LOOP_0_LOOP_1                                                                3 ~ 524291        3              undef         524291          9.999 ns         undef           1.747 ms
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  GetSourceSize                                                                                       8 ~ 524296        8              undef         524296          26.664 ns        undef           1.747 ms
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  load_rqf_mask_Pipeline_LOOP_2                                                                       42 ~ -1           42             undef         undef           0.140 us         undef           undef
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  load_rqf_mask                                                                                       undef             undef          undef         undef           undef            undef           undef
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  load_dct8_pixel_Pipeline_loop_load_dct8_pixel_VITIS_LOOP_4449_1                                     undef             undef          undef         undef           undef            undef           undef
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  load_dct8_pixel                                                                                     undef             undef          undef         undef           undef            undef           undef
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  load_dct16_pixel_Pipeline_loop_load_dct16_pixel_VITIS_LOOP_4467_1                                   undef             undef          undef         undef           undef            undef           undef
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  load_dct16_pixel                                                                                    undef             undef          undef         undef           undef            undef           undef
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  load_dct32_pixel_Pipeline_loop_load_dct32_pixel_VITIS_LOOP_4485_1                                   undef             undef          undef         undef           undef            undef           undef
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  load_dct32_pixel                                                                                    undef             undef          undef         undef           undef            undef           undef
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  GetRectSizeDCT_Pipeline_VITIS_LOOP_7188_1                                                           194               194            194           194             0.647 us         0.647 us        0.647 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  GetRectSizeDCT                                                                                      5 ~ 103284741     5              undef         103284741       16.665 ns        undef           0.344 sec
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  entry_proc104                                                                                       0                 0              0             0               0 ns             0 ns            0 ns
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  load_b64                                                                                            66                66             66            66              0.220 us         0.220 us        0.220 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_DCT1DImpl_8x8_1                                                                                 89                89             89            89              0.297 us         0.297 us        0.297 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_TransposeBlock8_1                                                                               72                72             72            72              0.240 us         0.240 us        0.240 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_DCT1DImpl_8x8                                                                                   89                89             89            89              0.297 us         0.297 us        0.297 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_TransposeBlock8                                                                                 72                72             72            72              0.240 us         0.240 us        0.240 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  split_ac_dc_dct8_Pipeline_VITIS_LOOP_5842_1_VITIS_LOOP_5843_2                                       67                67             67            67              0.223 us         0.223 us        0.223 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  split_ac_dc_dct8                                                                                    70                70             70            70              0.233 us         0.233 us        0.233 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  feed_ac_dct8_Pipeline_hls_feed_b64_VITIS_LOOP_5864_1                                                68                68             68            68              0.227 us         0.227 us        0.227 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  feed_ac_dct8                                                                                        70                70             70            70              0.233 us         0.233 us        0.233 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  feed_dc_dct8_Pipeline_hls_feed_b64_VITIS_LOOP_5888_1                                                68                68             68            68              0.227 us         0.227 us        0.227 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  feed_dc_dct8                                                                                        70                70             70            70              0.233 us         0.233 us        0.233 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dataflow_in_loop_VITIS_LOOP_5952_4                                                                  90                534            534           534             1.780 us         1.780 us        1.780 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dataflow_parent_loop_proc                                                                           716               716            716           716             2.386 us         2.386 us        2.386 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dataflow_parent_loop_proc66                                                                         5737              5737           5737          5737            19.121 us        19.121 us       19.121 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dataflow_parent_loop_proc67                                                                         45905             45905          45905         45905           0.153 ms         0.153 ms        0.153 ms
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dataflow_parent_loop_proc72                                                                         undef             undef          undef         undef           undef            undef           undef
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dataflow_parent_loop_proc73                                                                         undef             undef          undef         undef           undef            undef           undef
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_dct8x8_module                                                                                   undef             undef          undef         undef           undef            undef           undef
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  entry_proc103                                                                                       0                 0              0             0               0 ns             0 ns            0 ns
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dct16_test_load                                                                                     258               258            258           258             0.860 us         0.860 us        0.860 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  transposeDct16                                                                                      259               259            259           259             0.863 us         0.863 us        0.863 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_dct16_block_1                                                                                   335               335            335           335             1.117 us         1.117 us        1.117 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  transposeDct16_scale_1                                                                              264               264            264           264             0.880 us         0.880 us        0.880 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_dct16_block                                                                                     335               335            335           335             1.117 us         1.117 us        1.117 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  transposeDct16_scale                                                                                270               270            270           270             0.900 us         0.900 us        0.900 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dct16_ac_dc_split_Pipeline_VITIS_LOOP_6393_1                                                        259               259            259           259             0.863 us         0.863 us        0.863 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dct16_ac_dc_split                                                                                   263               263            263           263             0.877 us         0.877 us        0.877 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dct16_ac_writeout_Pipeline_VITIS_LOOP_6358_1                                                        260               260            260           260             0.867 us         0.867 us        0.867 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dct16_ac_writeout                                                                                   262               262            262           262             0.873 us         0.873 us        0.873 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_ReinterpretingIDCT16                                                                            26                26             26            26              86.658 ns        86.658 ns       86.658 ns
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dct16_dc_writeout_Pipeline_VITIS_LOOP_6379_1                                                        8                 8              8             8               26.664 ns        26.664 ns       26.664 ns
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dct16_dc_writeout                                                                                   10                10             10            10              33.330 ns        33.330 ns       33.330 ns
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dataflow_in_loop_VITIS_LOOP_6462_5                                                                  336               2253           2253          2253            7.509 us         7.509 us        7.509 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dataflow_parent_loop_proc63                                                                         2927              2927           2927          2927            9.756 us         9.756 us        9.756 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dataflow_parent_loop_proc64                                                                         11713             11713          11713         11713           39.039 us        39.039 us       39.039 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dataflow_parent_loop_proc69                                                                         46857             46857          46857         46857           0.156 ms         0.156 ms        0.156 ms
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dataflow_parent_loop_proc70                                                                         undef             undef          undef         undef           undef            undef           undef
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dataflow_parent_loop_proc75                                                                         undef             undef          undef         undef           undef            undef           undef
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_dct16x16_module                                                                                 undef             undef          undef         undef           undef            undef           undef
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  entry_proc                                                                                          0                 0              0             0               0 ns             0 ns            0 ns
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  load_dct32                                                                                          1026              1026           1026          1026            3.420 us         3.420 us        3.420 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_DCT1DImpl_32_1                                                                                  1135              1135           1135          1135            3.783 us         3.783 us        3.783 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  scaled_dct32                                                                                        1032              1032           1032          1032            3.440 us         3.440 us        3.440 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  transpose_dct32                                                                                     1027              1027           1027          1027            3.423 us         3.423 us        3.423 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_DCT1DImpl_32                                                                                    1135              1135           1135          1135            3.783 us         3.783 us        3.783 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  transpose_scaled_dct32                                                                              1032              1032           1032          1032            3.440 us         3.440 us        3.440 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  split_ac_dc_dct32                                                                                   1027              1027           1027          1027            3.423 us         3.423 us        3.423 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  feed_dct32_ac_Pipeline_loop_feed_dct32_ac                                                           1028              1028           1028          1028            3.426 us         3.426 us        3.426 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  feed_dct32_ac                                                                                       1030              1030           1030          1030            3.433 us         3.433 us        3.433 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_idct32_scale_2d                                                                                 28                28             28            28              93.324 ns        93.324 ns       93.324 ns
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_IDCT1D_32_1                                                                                     126               126            126           126             0.420 us         0.420 us        0.420 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_idct_transpose4x4                                                                               18                18             18            18              59.994 ns        59.994 ns       59.994 ns
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_IDCT1D_32                                                                                       126               126            126           126             0.420 us         0.420 us        0.420 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  feed_dct32_dc_Pipeline_loop_feed_dct32_dc                                                           20                20             20            20              66.660 ns        66.660 ns       66.660 ns
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  feed_dct32_dc                                                                                       22                22             22            22              73.326 ns        73.326 ns       73.326 ns
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dataflow_in_loop_VITIS_LOOP_7127_4                                                                  1136              8451           8451          8451            28.167 us        28.167 us       28.167 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dataflow_parent_loop_proc62                                                                         10725             10725          10725         10725           35.746 us        35.746 us       35.746 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dataflow_parent_loop_proc65                                                                         21453             21453          21453         21453           71.503 us        71.503 us       71.503 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dataflow_parent_loop_proc68                                                                         42909             42909          42909         42909           0.143 ms         0.143 ms        0.143 ms
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dataflow_parent_loop_proc71                                                                         undef             undef          undef         undef           undef            undef           undef
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dataflow_parent_loop_proc74                                                                         undef             undef          undef         undef           undef            undef           undef
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_dct32x32_module                                                                                 undef             undef          undef         undef           undef            undef           undef
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_lossy_enc_compute_dataflow_Block_split1326_proc                                                 25                25             25            25              83.325 ns        83.325 ns       83.325 ns
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  GetACSSize_Pipeline_LOOP_0_LOOP_1                                                                   2 ~ 524290        2              undef         524290          6.666 ns         undef           1.747 ms
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  GetACSSize                                                                                          7 ~ 524295        7              undef         524295          23.331 ns        undef           1.747 ms
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  DupQuantAndMask_Pipeline_DUP_1_DUP_2                                                                79                79             79            79              0.263 us         0.263 us        0.263 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  DupQuantAndMask                                                                                     5313              5313           5313          5313            17.708 us        17.708 us       17.708 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  DupDCT_1_Pipeline_LOOP_1_LOOP_3_LOOP_4                                                              770               770            770           770             2.566 us         2.566 us        2.566 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  DupDCT_1_s                                                                                          49665             49665          49665         49665           0.166 ms         0.166 ms        0.166 ms
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  DupDCT_2_Pipeline_LOOP_3_LOOP_4                                                                     770               770            770           770             2.566 us         2.566 us        2.566 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  DupDCT_2_s                                                                                          198081            198081         198081        198081          0.660 ms         0.660 ms        0.660 ms
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  DupDCT_4_Pipeline_LOOP_3_LOOP_4                                                                     3074              3074           3074          3074            10.246 us        10.246 us       10.246 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  DupDCT_4_s                                                                                          787905            787905         787905        787905          2.626 ms         2.626 ms        2.626 ms
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  GetQAndMask_8_Pipeline_LOOP_1_LOOP_2                                                                450               450            450           450             1.500 us         1.500 us        1.500 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  GetQAndMask_8                                                                                       29057             29057          29057         29057           96.847 us        96.847 us       96.847 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  ComputeEntropy1_1_Pipeline_LOOP_1_LOOP_3_LOOP_4                                                     12346             12346          12346         12346           41.149 us        41.149 us       41.149 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  ComputeEntropy1_1_s                                                                                 790593            790593         790593        790593          2.635 ms         2.635 ms        2.635 ms
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  ComputeEntropy3_1_Pipeline_1                                                                        5                 5              5             5               16.665 ns        16.665 ns       16.665 ns
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  ComputeEntropy3_1_Pipeline_VITIS_LOOP_7821_1                                                        28                28             28            28              93.324 ns        93.324 ns       93.324 ns
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  ComputeEntropy3_1_s                                                                                 454849            454849         454849        454849          1.516 ms         1.516 ms        1.516 ms
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  GetQAndMask_16_32_2_Pipeline_LOOP_2                                                                 10                10             10            10              33.330 ns        33.330 ns       33.330 ns
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  GetQAndMask_16_32_2_Pipeline_LOOP_6                                                                 22                22             22            22              73.326 ns        73.326 ns       73.326 ns
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  GetQAndMask_16_32_2_Pipeline_LOOP_7                                                                 38                38             38            38              0.127 us         0.127 us        0.127 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  GetQAndMask_16_32_2_s                                                                               35585             35585          35585         35585           0.119 ms         0.119 ms        0.119 ms
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  ComputeEntropy1_2_Pipeline_LOOP_3_LOOP_4                                                            826               826            826           826             2.753 us         2.753 us        2.753 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  ComputeEntropy1_2_s                                                                                 3392705           3392705        3392705       3392705         11.308 ms        11.308 ms       11.308 ms
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  ComputeEntropy3_2_Pipeline_1                                                                        5                 5              5             5               16.665 ns        16.665 ns       16.665 ns
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  ComputeEntropy3_2_Pipeline_VITIS_LOOP_7821_1                                                        28                28             28            28              93.324 ns        93.324 ns       93.324 ns
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  ComputeEntropy3_2_s                                                                                 410753            410753         410753        410753          1.369 ms         1.369 ms        1.369 ms
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  GetQAndMask_16_32_4_Pipeline_LOOP_2                                                                 10                10             10            10              33.330 ns        33.330 ns       33.330 ns
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  GetQAndMask_16_32_4_Pipeline_LOOP_6                                                                 36                36             36            36              0.120 us         0.120 us        0.120 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  GetQAndMask_16_32_4_Pipeline_LOOP_7                                                                 38                38             38            38              0.127 us         0.127 us        0.127 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  GetQAndMask_16_32_4_s                                                                               62721             62721          62721         62721           0.209 ms         0.209 ms        0.209 ms
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  ComputeEntropy1_4_Pipeline_LOOP_3_LOOP_4                                                            3130              3130           3130          3130            10.432 us        10.432 us       10.432 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  ComputeEntropy1_4_s                                                                                 12829889          12829889       12829889      12829889        42.762 ms        42.762 ms       42.762 ms
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  ComputeEntropy3_4_Pipeline_1                                                                        5                 5              5             5               16.665 ns        16.665 ns       16.665 ns
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  ComputeEntropy3_4_Pipeline_VITIS_LOOP_7821_1                                                        28                28             28            28              93.324 ns        93.324 ns       93.324 ns
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  ComputeEntropy3_4_s                                                                                 410753            410753         410753        410753          1.369 ms         1.369 ms        1.369 ms
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  CompareEntropy_Pipeline_1                                                                           18                18             18            18              59.994 ns        59.994 ns       59.994 ns
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  CompareEntropy                                                                                      46401 ~ 361793    46401          116033        361793          0.155 ms         0.387 ms        1.206 ms
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  BufferN_1_Pipeline_LOOP_1_LOOP_3_LOOP_4_LOOP_5                                                      12292             12292          12292         12292           40.969 us        40.969 us       40.969 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  BufferN_1_s                                                                                         786945            786945         786945        786945          2.623 ms         2.623 ms        2.623 ms
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  BufferN_2_Pipeline_LOOP_1_LOOP_3_LOOP_4_LOOP_5                                                      12291             12291          12291         12291           40.966 us        40.966 us       40.966 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  BufferN_2_s                                                                                         786881            786881         786881        786881          2.623 ms         2.623 ms        2.623 ms
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  BufferN_4_Pipeline_LOOP_1_LOOP_3_LOOP_4_LOOP_5                                                      12291             12291          12291         12291           40.966 us        40.966 us       40.966 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  BufferN_4_s                                                                                         786881            786881         786881        786881          2.623 ms         2.623 ms        2.623 ms
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  Reorder_Pipeline_LOOP_10_LOOP_11_LOOP_12                                                            3077              3077           3077          3077            10.256 us        10.256 us       10.256 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  Reorder_Pipeline_LOOP_5_LOOP_6_LOOP_7                                                               773               773            773           773             2.576 us         2.576 us        2.576 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  Reorder_Pipeline_LOOP_13_LOOP_14_LOOP_15                                                            197               197            197           197             0.657 us         0.657 us        0.657 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  Reorder                                                                                             12481 ~ 12624065  12481          4161729       12624065        41.599 us        13.871 ms       42.076 ms
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  SetQuantField_Pipeline_LOOP_1_LOOP_2                                                                66                66             66            66              0.220 us         0.220 us        0.220 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  SetQuantField_Pipeline_LOOP_5_LOOP_6                                                                10 ~ 85           10             undef         85              33.330 ns        undef           0.283 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  SetQuantField                                                                                       193 ~ 430593      193            undef         430593          0.643 us         undef           1.435 ms
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_CFLComputeTile_Pipeline_VITIS_LOOP_4959_3                                                       undef             undef          undef         undef           undef            undef           undef
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_CFLComputeTile                                                                                  undef             undef          undef         undef           undef            undef           undef
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_ComputeCoefficients_Pipeline_VITIS_LOOP_5111_3                                                  2 ~ 12582844      2              undef         12582844        6.666 ns         undef           41.939 ms
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_ComputeCoefficients                                                                             undef             undef          undef         undef           undef            undef           undef
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  count_numzeros_Pipeline_VITIS_LOOP_5389_2_VITIS_LOOP_5390_3                                         undef             undef          undef         undef           undef            undef           undef
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  count_numzeros                                                                                      undef             undef          undef         undef           undef            undef           undef
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  GetDCSize_Pipeline_LOOP_0_LOOP_1                                                                    2 ~ 524290        2              undef         524290          6.666 ns         undef           1.747 ms
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  GetDCSize                                                                                           7 ~ 524295        7              undef         524295          23.331 ns        undef           1.747 ms
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dc_8x8_writeout_Pipeline_VITIS_LOOP_4595_2_VITIS_LOOP_4596_3_VITIS_LOOP_4597_4                      236               236            236           236             0.787 us         0.787 us        0.787 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dc_8x8_writeout                                                                                     undef             undef          undef         undef           undef            undef           undef
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dc_16x16_writeout_Pipeline_VITIS_LOOP_4648_3_VITIS_LOOP_4650_5_VITIS_LOOP_4651_6_VITIS_LOOP_4652_7  237               237            237           237             0.790 us         0.790 us        0.790 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dc_16x16_writeout                                                                                   undef             undef          undef         undef           undef            undef           undef
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dc_32x32_writeout_Pipeline_VITIS_LOOP_4718_3_VITIS_LOOP_4720_5_VITIS_LOOP_4721_6_VITIS_LOOP_4722_7  237               237            237           237             0.790 us         0.790 us        0.790 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dc_32x32_writeout                                                                                   undef             undef          undef         undef           undef            undef           undef
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  cfl_writeout_Pipeline_VITIS_LOOP_4825_1                                                             undef             undef          undef         undef           undef            undef           undef
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  cfl_writeout                                                                                        undef             undef          undef         undef           undef            undef           undef
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  ac_coeff_writeout_Pipeline_VITIS_LOOP_4560_1                                                        undef             undef          undef         undef           undef            undef           undef
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  ac_coeff_writeout                                                                                   undef             undef          undef         undef           undef            undef           undef
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  acs_rqf_writeout_Pipeline_LOOP_6                                                                    43 ~ 58           43             undef         58              0.143 us         undef           0.193 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  acs_rqf_writeout                                                                                    undef             undef          undef         undef           undef            undef           undef
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_lossy_enc_compute_dataflow                                                                      undef             undef          undef         undef           undef            undef           undef
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  entry_proc105                                                                                       0                 0              0             0               0 ns             0 ns            0 ns
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  load_nz2strm_Pipeline_VITIS_LOOP_5459_2_VITIS_LOOP_5460_3                                           223 ~ 799         223            undef         799             0.743 us         undef           2.663 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  load_nz2strm                                                                                        453 ~ 1605        453            undef         1605            1.510 us         undef           5.349 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_sort_8_Pipeline_VITIS_LOOP_5279_2                                                               undef             undef          undef         undef           undef            undef           undef
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_sort_8_s                                                                                        undef             undef          undef         undef           undef            undef           undef
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_sort_top                                                                                        undef             undef          undef         undef           undef            undef           undef
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  order_writeout_Pipeline_VITIS_LOOP_5519_2_VITIS_LOOP_5520_3                                         232 ~ 808         232            undef         808             0.773 us         undef           2.693 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  order_writeout                                                                                      511 ~ 1663        511            undef         1663            1.703 us         undef           5.543 us
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  order_finalize_dataflow                                                                             undef             undef          undef         undef           undef            undef           undef
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  JxlEnc_lossy_enc_compute                                                                            undef             undef          undef         undef           undef            undef           undef
+
+Area Information
+Compute Unit                Kernel Name               Module Name                                                                                         FF      LUT     DSP  BRAM  URAM
+--------------------------  ------------------------  --------------------------------------------------------------------------------------------------  ------  ------  ---  ----  ----
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  JxlEnc_lossy_enc_compute_Pipeline_VITIS_LOOP_5346_1_VITIS_LOOP_5347_2                               419     360     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  entry_proc106                                                                                       3       119     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_lossy_enc_compute_dataflow_Block_split13_proc                                                   178     172     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  GetSourceSize_Pipeline_LOOP_0_LOOP_1                                                                143     482     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  GetSourceSize                                                                                       296     817     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  load_rqf_mask_Pipeline_LOOP_2                                                                       497     222     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  load_rqf_mask                                                                                       3758    5516    0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  load_dct8_pixel_Pipeline_loop_load_dct8_pixel_VITIS_LOOP_4449_1                                     1064    633     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  load_dct8_pixel                                                                                     1497    1419    0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  load_dct16_pixel_Pipeline_loop_load_dct16_pixel_VITIS_LOOP_4467_1                                   1064    633     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  load_dct16_pixel                                                                                    1497    1419    0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  load_dct32_pixel_Pipeline_loop_load_dct32_pixel_VITIS_LOOP_4485_1                                   1064    633     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  load_dct32_pixel                                                                                    1497    1419    0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  GetRectSizeDCT_Pipeline_VITIS_LOOP_7188_1                                                           13      200     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  GetRectSizeDCT                                                                                      155     638     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  entry_proc104                                                                                       2       47      0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  load_b64                                                                                            56      168     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_DCT1DImpl_8x8_1                                                                                 5049    2971    0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_TransposeBlock8_1                                                                               378     344     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_DCT1DImpl_8x8                                                                                   5049    2971    0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_TransposeBlock8                                                                                 314     312     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  split_ac_dc_dct8_Pipeline_VITIS_LOOP_5842_1_VITIS_LOOP_5843_2                                       34      164     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  split_ac_dc_dct8                                                                                    72      229     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  feed_ac_dct8_Pipeline_hls_feed_b64_VITIS_LOOP_5864_1                                                60      221     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  feed_ac_dct8                                                                                        71      297     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  feed_dc_dct8_Pipeline_hls_feed_b64_VITIS_LOOP_5888_1                                                110     242     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  feed_dc_dct8                                                                                        153     318     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dataflow_in_loop_VITIS_LOOP_5952_4                                                                  11180   7907    0    22    0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dataflow_parent_loop_proc                                                                           11223   7937    0    22    0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dataflow_parent_loop_proc66                                                                         11301   7974    0    22    0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dataflow_parent_loop_proc67                                                                         11379   8011    0    22    0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dataflow_parent_loop_proc72                                                                         11808   8116    0    22    0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dataflow_parent_loop_proc73                                                                         12237   8221    0    22    0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_dct8x8_module                                                                                   12353   8660    0    22    0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  entry_proc103                                                                                       2       47      0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dct16_test_load                                                                                     62      175     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  transposeDct16                                                                                      48      179     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_dct16_block_1                                                                                   6393    3494    0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  transposeDct16_scale_1                                                                              321     289     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_dct16_block                                                                                     6393    3494    0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  transposeDct16_scale                                                                                601     489     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dct16_ac_dc_split_Pipeline_VITIS_LOOP_6393_1                                                        288     183     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dct16_ac_dc_split                                                                                   423     337     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dct16_ac_writeout_Pipeline_VITIS_LOOP_6358_1                                                        58      133     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dct16_ac_writeout                                                                                   71      215     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_ReinterpretingIDCT16                                                                            1953    1324    0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dct16_dc_writeout_Pipeline_VITIS_LOOP_6379_1                                                        40      122     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dct16_dc_writeout                                                                                   53      204     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dataflow_in_loop_VITIS_LOOP_6462_5                                                                  16633   10660   0    26    0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dataflow_parent_loop_proc63                                                                         16676   10690   0    26    0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dataflow_parent_loop_proc64                                                                         16738   10724   0    26    0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dataflow_parent_loop_proc69                                                                         16800   10758   0    26    0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dataflow_parent_loop_proc70                                                                         17229   10863   0    26    0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dataflow_parent_loop_proc75                                                                         17658   10968   0    26    0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_dct16x16_module                                                                                 17773   11380   0    26    0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  entry_proc                                                                                          2       47      0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  load_dct32                                                                                          68      184     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_DCT1DImpl_32_1                                                                                  8728    5591    0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  scaled_dct32                                                                                        329     283     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  transpose_dct32                                                                                     58      190     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_DCT1DImpl_32                                                                                    8728    5591    0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  transpose_scaled_dct32                                                                              329     300     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  split_ac_dc_dct32                                                                                   58      216     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  feed_dct32_ac_Pipeline_loop_feed_dct32_ac                                                           64      154     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  feed_dct32_ac                                                                                       73      236     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_idct32_scale_2d                                                                                 1453    537     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_IDCT1D_32_1                                                                                     832     666     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_idct_transpose4x4                                                                               18      159     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_IDCT1D_32                                                                                       832     666     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  feed_dct32_dc_Pipeline_loop_feed_dct32_dc                                                           46      144     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  feed_dct32_dc                                                                                       55      226     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dataflow_in_loop_VITIS_LOOP_7127_4                                                                  21787   15220   0    30    0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dataflow_parent_loop_proc62                                                                         21830   15250   0    30    0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dataflow_parent_loop_proc65                                                                         21877   15281   0    30    0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dataflow_parent_loop_proc68                                                                         21924   15312   0    30    0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dataflow_parent_loop_proc71                                                                         22353   15417   0    30    0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dataflow_parent_loop_proc74                                                                         22782   15522   0    30    0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_dct32x32_module                                                                                 22897   15934   0    30    0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_lossy_enc_compute_dataflow_Block_split1326_proc                                                 791     597     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  GetACSSize_Pipeline_LOOP_0_LOOP_1                                                                   31      203     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  GetACSSize                                                                                          127     547     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  DupQuantAndMask_Pipeline_DUP_1_DUP_2                                                                762     450     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  DupQuantAndMask                                                                                     818     678     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  DupDCT_1_Pipeline_LOOP_1_LOOP_3_LOOP_4                                                              27      116     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  DupDCT_1_s                                                                                          93      350     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  DupDCT_2_Pipeline_LOOP_3_LOOP_4                                                                     13      97      0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  DupDCT_2_s                                                                                          94      386     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  DupDCT_4_Pipeline_LOOP_3_LOOP_4                                                                     15      100     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  DupDCT_4_s                                                                                          96      389     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  GetQAndMask_8_Pipeline_LOOP_1_LOOP_2                                                                263     224     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  GetQAndMask_8                                                                                       334     445     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  ComputeEntropy1_1_Pipeline_LOOP_1_LOOP_3_LOOP_4                                                     2931    3590    0    3     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  ComputeEntropy1_1_s                                                                                 3180    3830    0    3     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  ComputeEntropy3_1_Pipeline_1                                                                        4       44      0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  ComputeEntropy3_1_Pipeline_VITIS_LOOP_7821_1                                                        650     243     0    1     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  ComputeEntropy3_1_s                                                                                 2841    2099    0    1     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  GetQAndMask_16_32_2_Pipeline_LOOP_2                                                                 17      99      0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  GetQAndMask_16_32_2_Pipeline_LOOP_6                                                                 698     750     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  GetQAndMask_16_32_2_Pipeline_LOOP_7                                                                 82      147     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  GetQAndMask_16_32_2_s                                                                               1779    1953    0    2     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  ComputeEntropy1_2_Pipeline_LOOP_3_LOOP_4                                                            2892    3446    0    4     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  ComputeEntropy1_2_s                                                                                 3145    3735    0    4     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  ComputeEntropy3_2_Pipeline_1                                                                        4       44      0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  ComputeEntropy3_2_Pipeline_VITIS_LOOP_7821_1                                                        650     243     0    1     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  ComputeEntropy3_2_s                                                                                 2805    1999    0    1     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  GetQAndMask_16_32_4_Pipeline_LOOP_2                                                                 17      99      0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  GetQAndMask_16_32_4_Pipeline_LOOP_6                                                                 699     752     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  GetQAndMask_16_32_4_Pipeline_LOOP_7                                                                 82      147     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  GetQAndMask_16_32_4_s                                                                               1782    1957    0    2     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  ComputeEntropy1_4_Pipeline_LOOP_3_LOOP_4                                                            2902    3457    0    2     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  ComputeEntropy1_4_s                                                                                 3155    3746    0    2     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  ComputeEntropy3_4_Pipeline_1                                                                        4       44      0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  ComputeEntropy3_4_Pipeline_VITIS_LOOP_7821_1                                                        650     243     0    1     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  ComputeEntropy3_4_s                                                                                 2805    1999    0    1     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  CompareEntropy_Pipeline_1                                                                           7       49      0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  CompareEntropy                                                                                      974     1529    0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  BufferN_1_Pipeline_LOOP_1_LOOP_3_LOOP_4_LOOP_5                                                      129     487     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  BufferN_1_s                                                                                         187     652     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  BufferN_2_Pipeline_LOOP_1_LOOP_3_LOOP_4_LOOP_5                                                      129     488     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  BufferN_2_s                                                                                         194     652     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  BufferN_4_Pipeline_LOOP_1_LOOP_3_LOOP_4_LOOP_5                                                      132     502     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  BufferN_4_s                                                                                         196     666     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  Reorder_Pipeline_LOOP_10_LOOP_11_LOOP_12                                                            169     429     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  Reorder_Pipeline_LOOP_5_LOOP_6_LOOP_7                                                               159     463     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  Reorder_Pipeline_LOOP_13_LOOP_14_LOOP_15                                                            123     379     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  Reorder                                                                                             781     2123    0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  SetQuantField_Pipeline_LOOP_1_LOOP_2                                                                35      173     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  SetQuantField_Pipeline_LOOP_5_LOOP_6                                                                382     750     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  SetQuantField                                                                                       1355    2250    0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_CFLComputeTile_Pipeline_VITIS_LOOP_4959_3                                                       2959    4304    0    6     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_CFLComputeTile                                                                                  6214    12108   0    6     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_ComputeCoefficients_Pipeline_VITIS_LOOP_5111_3                                                  10841   7141    0    48    0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_ComputeCoefficients                                                                             12632   8627    0    48    0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  count_numzeros_Pipeline_VITIS_LOOP_5389_2_VITIS_LOOP_5390_3                                         5769    4614    0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  count_numzeros                                                                                      6154    5395    0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  GetDCSize_Pipeline_LOOP_0_LOOP_1                                                                    31      167     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  GetDCSize                                                                                           127     475     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dc_8x8_writeout_Pipeline_VITIS_LOOP_4595_2_VITIS_LOOP_4596_3_VITIS_LOOP_4597_4                      1448    1055    0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dc_8x8_writeout                                                                                     2437    1976    0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dc_16x16_writeout_Pipeline_VITIS_LOOP_4648_3_VITIS_LOOP_4650_5_VITIS_LOOP_4651_6_VITIS_LOOP_4652_7  1811    1702    0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dc_16x16_writeout                                                                                   3859    3225    0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dc_32x32_writeout_Pipeline_VITIS_LOOP_4718_3_VITIS_LOOP_4720_5_VITIS_LOOP_4721_6_VITIS_LOOP_4722_7  1902    1742    0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  dc_32x32_writeout                                                                                   3826    3263    0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  cfl_writeout_Pipeline_VITIS_LOOP_4825_1                                                             218     389     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  cfl_writeout                                                                                        497     582     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  ac_coeff_writeout_Pipeline_VITIS_LOOP_4560_1                                                        552     549     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  ac_coeff_writeout                                                                                   1059    1382    0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  acs_rqf_writeout_Pipeline_LOOP_6                                                                    740     608     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  acs_rqf_writeout                                                                                    2633    5078    0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_lossy_enc_compute_dataflow                                                                      139447  132936  0    276   36
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  entry_proc105                                                                                       3       29      0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  load_nz2strm_Pipeline_VITIS_LOOP_5459_2_VITIS_LOOP_5460_3                                           2029    2575    0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  load_nz2strm                                                                                        2049    2740    0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_sort_8_Pipeline_VITIS_LOOP_5279_2                                                               772     2990    0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_sort_8_s                                                                                        786     3054    0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  hls_sort_top                                                                                        802     3188    0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  order_writeout_Pipeline_VITIS_LOOP_5519_2_VITIS_LOOP_5520_3                                         444     588     0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  order_writeout                                                                                      630     1213    0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  order_finalize_dataflow                                                                             3513    7371    0    0     0
+JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  JxlEnc_lossy_enc_compute                                                                            158136  157867  0    431   36
+-------------------------------------------------------------------------------
+```
