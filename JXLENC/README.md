@@ -1,7 +1,1256 @@
 # JPEGXL Encoding
 ### Background
 JPEG XL (JXL) - new file standard that is more compact than JPEG, with a compression ratio of typically 20:1 to 50:1 and supports both lossy and lossless compression
+### L1 Tests
+``` sh
+janethamrani@superlu:~/Vitis_Libraries/codec/L1/tests/jxlEnc$ cd order_tokenize/janethamrani@superlu:~/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize$ make run CSIM=1
+Configured: settings.tcl
+----
+set XPART xcu280-fsvh2892-2L-e
+set CSIM 1
+set CSYNTH 0
+set COSIM 0
+set VIVADO_SYN 0
+set VIVADO_IMPL 0
+set XF_PROJ_ROOT "/home/janethamrani/Vitis_Libraries/codec"
+set CUR_DIR "/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize"
+----
+vitis_hls -f run_hls.tcl;
 
+****** Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2021.2 (64-bit)
+  **** SW Build 3367213 on Tue Oct 19 02:47:39 MDT 2021
+  **** IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+    ** Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+
+source /tools/Xilinx/Vitis_HLS/2021.2/scripts/vitis_hls/hls.tcl -notrace
+INFO: Applying HLS Y2K22 patch v1.2 for IP revision
+INFO: [HLS 200-10] Running '/tools/Xilinx/Vitis_HLS/2021.2/bin/unwrapped/lnx64.o/vitis_hls'
+INFO: [HLS 200-10] For user 'janethamrani' on host 'superlu' (Linux_x86_64 version 5.4.0-137-generic) on Sat Feb 04 13:33:50 EST 2023
+INFO: [HLS 200-10] On os Ubuntu 18.04.6 LTS
+INFO: [HLS 200-10] In directory '/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize'
+Sourcing Tcl script 'run_hls.tcl'
+INFO: [HLS 200-1510] Running: open_project -reset tokenize.prj 
+INFO: [HLS 200-10] Creating and opening project '/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/tokenize.prj'.
+INFO: [HLS 200-1510] Running: add_files kernel/topOrderTokenize.cpp -cflags -I/home/janethamrani/Vitis_Libraries/codec/L1/include -I/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/kernel 
+INFO: [HLS 200-10] Adding design file 'kernel/topOrderTokenize.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files -tb host/test_orderTokenize.cpp -cflags -I/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/kernel 
+INFO: [HLS 200-10] Adding test bench file 'host/test_orderTokenize.cpp' to the project
+INFO: [HLS 200-1510] Running: set_top top_order_tokenize 
+INFO: [HLS 200-1510] Running: open_solution -reset solution1 
+INFO: [HLS 200-10] Creating and opening solution '/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/tokenize.prj/solution1'.
+INFO: [HLS 200-10] Cleaning up the solution database.
+WARNING: [HLS 200-40] No /home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/tokenize.prj/solution1/solution1.aps file found.
+INFO: [HLS 200-1505] Using default flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see www.xilinx.com/cgi-bin/docs/rdoc?v=2021.2;t=hls+guidance;d=200-1505.html
+INFO: [HLS 200-1510] Running: set_part xcu280-fsvh2892-2L-e 
+INFO: [HLS 200-1611] Setting target device to 'xcu280-fsvh2892-2L-e'
+INFO: [HLS 200-1510] Running: create_clock -period 3.33 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 3.33ns.
+INFO: [HLS 200-1510] Running: csim_design -ldflags -pthread -std=c++11 -argv -i /home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/data/orders.txt -g /home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/data/goldens.txt 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+make[1]: Entering directory '/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/tokenize.prj/solution1/csim/build'
+   Compiling ../../../../host/test_orderTokenize.cpp in debug mode
+   Compiling ../../../../kernel/topOrderTokenize.cpp in debug mode
+   Generating csim.exe
+make[1]: Leaving directory '/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/tokenize.prj/solution1/csim/build'
+
+-----------------Order Tokenize----------------
+INFO: num_orders is 960 
+INFO: Tokenize CSim Pass!
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 3.13 seconds. CPU system time: 0.27 seconds. Elapsed time: 2.91 seconds; current allocated memory: -937.109 MB.
+INFO: [HLS 200-112] Total CPU user time: 5.13 seconds. Total CPU system time: 0.68 seconds. Total elapsed time: 4.53 seconds; peak allocated memory: 282.062 MB.
+INFO: [Common 17-206] Exiting vitis_hls at Sat Feb  4 13:33:55 2023...
+janethamrani@superlu:~/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize$ make run CSYNTH=1
+Configured: settings.tcl
+----
+set XPART xcu280-fsvh2892-2L-e
+set CSIM 0
+set CSYNTH 1
+set COSIM 0
+set VIVADO_SYN 0
+set VIVADO_IMPL 0
+set XF_PROJ_ROOT "/home/janethamrani/Vitis_Libraries/codec"
+set CUR_DIR "/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize"
+----
+vitis_hls -f run_hls.tcl;
+
+****** Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2021.2 (64-bit)
+  **** SW Build 3367213 on Tue Oct 19 02:47:39 MDT 2021
+  **** IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+    ** Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+
+source /tools/Xilinx/Vitis_HLS/2021.2/scripts/vitis_hls/hls.tcl -notrace
+INFO: Applying HLS Y2K22 patch v1.2 for IP revision
+INFO: [HLS 200-10] Running '/tools/Xilinx/Vitis_HLS/2021.2/bin/unwrapped/lnx64.o/vitis_hls'
+INFO: [HLS 200-10] For user 'janethamrani' on host 'superlu' (Linux_x86_64 version 5.4.0-137-generic) on Sat Feb 04 13:36:51 EST 2023
+INFO: [HLS 200-10] On os Ubuntu 18.04.6 LTS
+INFO: [HLS 200-10] In directory '/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize'
+Sourcing Tcl script 'run_hls.tcl'
+INFO: [HLS 200-1510] Running: open_project -reset tokenize.prj 
+INFO: [HLS 200-10] Opening and resetting project '/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/tokenize.prj'.
+WARNING: [HLS 200-40] No /home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/tokenize.prj/solution1/solution1.aps file found.
+INFO: [HLS 200-1510] Running: add_files kernel/topOrderTokenize.cpp -cflags -I/home/janethamrani/Vitis_Libraries/codec/L1/include -I/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/kernel 
+INFO: [HLS 200-10] Adding design file 'kernel/topOrderTokenize.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files -tb host/test_orderTokenize.cpp -cflags -I/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/kernel 
+INFO: [HLS 200-10] Adding test bench file 'host/test_orderTokenize.cpp' to the project
+INFO: [HLS 200-1510] Running: set_top top_order_tokenize 
+INFO: [HLS 200-1510] Running: open_solution -reset solution1 
+INFO: [HLS 200-10] Creating and opening solution '/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/tokenize.prj/solution1'.
+INFO: [HLS 200-10] Cleaning up the solution database.
+WARNING: [HLS 200-40] No /home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/tokenize.prj/solution1/solution1.aps file found.
+INFO: [HLS 200-1505] Using default flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see www.xilinx.com/cgi-bin/docs/rdoc?v=2021.2;t=hls+guidance;d=200-1505.html
+INFO: [HLS 200-1510] Running: set_part xcu280-fsvh2892-2L-e 
+INFO: [HLS 200-1611] Setting target device to 'xcu280-fsvh2892-2L-e'
+INFO: [HLS 200-1510] Running: create_clock -period 3.33 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 3.33ns.
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 1.191 GB.
+INFO: [HLS 200-10] Analyzing design file 'kernel/topOrderTokenize.cpp' ... 
+WARNING: [HLS 207-5523] 'Resource pragma' is deprecated, use 'bind_op/bind_storage pragma' instead (/home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:365:9)
+WARNING: [HLS 207-5523] 'Resource pragma' is deprecated, use 'bind_op/bind_storage pragma' instead (/home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:448:9)
+WARNING: [HLS 207-5523] 'Resource pragma' is deprecated, use 'bind_op/bind_storage pragma' instead (/home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:454:9)
+WARNING: [HLS 207-5523] 'Resource pragma' is deprecated, use 'bind_op/bind_storage pragma' instead (/home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:460:9)
+WARNING: [HLS 207-5523] 'Resource pragma' is deprecated, use 'bind_op/bind_storage pragma' instead (/home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:466:9)
+WARNING: [HLS 207-5523] 'Resource pragma' is deprecated, use 'bind_op/bind_storage pragma' instead (/home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:472:9)
+WARNING: [HLS 214-113] Either use an argument of the function or declare the variable inside the dataflow loop body (/home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:476:28)
+Resolution: For help on HLS 214-113 see www.xilinx.com/cgi-bin/docs/rdoc?v=2021.2;t=hls+guidance;d=214-113.html
+WARNING: [HLS 200-471] Dataflow form checks found 1 issue(s) in file kernel/topOrderTokenize.cpp
+Resolution: For help on HLS 200-471 see www.xilinx.com/cgi-bin/docs/rdoc?v=2021.2;t=hls+guidance;d=200-471.html
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 4.38 seconds. CPU system time: 0.31 seconds. Elapsed time: 4.18 seconds; current allocated memory: 283.941 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
+INFO: [HLS 214-284] Auto array partition mode is set into default.
+WARNING: [HLS 214-172] Cannot apply disaggregate pragma/directive on stream object 'lehmerStrm' as it needs to be read/written in its entirety
+WARNING: [HLS 214-172] Cannot apply disaggregate pragma/directive on stream object 'endStrm' as it needs to be read/written in its entirety
+WARNING: [HLS 214-172] Cannot apply disaggregate pragma/directive on stream object 'zigzagStrm' as it needs to be read/written in its entirety
+WARNING: [HLS 214-172] Cannot apply disaggregate pragma/directive on stream object 'strategyStrm' as it needs to be read/written in its entirety
+INFO: [HLS 214-178] Inlining function 'xf::codec::internal::HybridUint::HybridUint(ap_uint<32>, ap_uint<32>, ap_uint<32>)' into 'xf::codec::internal::hls_CoeffOrderContext(ap_uint<32>)' (/home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:204:0)
+INFO: [HLS 214-178] Inlining function 'xf::codec::internal::hls_Encode(xf::codec::internal::HybridUint&, ap_uint<32>, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&)' into 'xf::codec::internal::hls_CoeffOrderContext(ap_uint<32>)' (/home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:204:0)
+INFO: [HLS 214-248] Applying array_partition to 'temp': Complete partitioning on dimension 1. (/home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:364:17)
+INFO: [HLS 214-248] Applying array_partition to 'skipStrm': Complete partitioning on dimension 1. (/home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:457:28)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'skipStrm_0' with compact=bit mode in 32-bits (/home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:457:28)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'skipStrm_1' with compact=bit mode in 32-bits (/home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:457:28)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'skipStrm_2' with compact=bit mode in 32-bits (/home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:457:28)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'e_tokenStrm' with compact=bit mode in 1-bits (kernel/topOrderTokenize.cpp:22:0)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'tokenStrm' with compact=bit mode in 64-bits (kernel/topOrderTokenize.cpp:22:0)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'orderStrm' with compact=bit mode in 32-bits (kernel/topOrderTokenize.cpp:22:0)
+INFO: [HLS 214-270] Starting automatic array partition analysis...
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i8.s_struct.ap_uint<8>s' into 'xf::codec::internal::scanStrategy(unsigned short, ap_uint<32>&, hls::stream<ap_uint<8>, 0>&, hls::stream<ap_uint<32>, 0>*) (.1)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173:9)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i32.s_struct.ssdm_int<32, false>s' into '_llvm.fpga.unpack.bits.s_struct.ap_uint<32>s.i32.1'
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.unpack.bits.s_struct.ap_uint<32>s.i32.1' into 'xf::codec::internal::loadZigzag(ap_uint<32>&, hls::stream<ap_uint<8>, 0>&, hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<32>, 0>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:144:9)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i32.s_struct.ap_uint<32>s' into 'xf::codec::internal::loadZigzag(ap_uint<32>&, hls::stream<ap_uint<8>, 0>&, hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<32>, 0>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173:9)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i32.s_struct.ap_uint<32>s' into 'xf::codec::internal::lehmerCore(ap_uint<32>, ap_uint<32>, ap_uint<16>*, ap_uint<32>&, hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<32>, 0>&) (.36.43.50.57.77.85.1)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173:9)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.unpack.bits.s_struct.ap_uint<32>s.i32.1' into 'xf::codec::internal::updateLehmer(ap_uint<32>, hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<32>, 0>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:144:9)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i32.s_struct.ap_uint<32>s' into 'xf::codec::internal::updateLehmer(ap_uint<32>, hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<32>, 0>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173:9)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.unpack.bits.s_struct.ap_uint<32>s.i32.1' into 'xf::codec::internal::updateToken(ap_uint<32>, hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<64>, 0>&, hls::stream<bool, 0>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:144:9)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i64.s_struct.ap_uint<64>s' into 'xf::codec::internal::updateToken(ap_uint<32>, hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<64>, 0>&, hls::stream<bool, 0>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173:9)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 2.87 seconds. CPU system time: 0.2 seconds. Elapsed time: 3.11 seconds; current allocated memory: 284.703 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 284.703 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0.05 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.08 seconds; current allocated memory: 299.824 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [XFORM 203-602] Inlining function 'xf::codec::internal::hls_CoeffOrderContext' into 'xf::codec::internal::updateToken' (/home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:403) automatically.
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0.12 seconds. CPU system time: 0 seconds. Elapsed time: 0.13 seconds; current allocated memory: 321.598 MB.
+INFO: [XFORM 203-602] Inlining function 'xf::codec::internal::hls_CoeffOrderContext' into 'xf::codec::internal::updateToken' (/home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:403) automatically.
+INFO: [XFORM 203-712] Applying dataflow to function 'xf::codec::internal::updateCore' (/home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:353:1), detected/extracted 2 process function(s): 
+	 'xf::codec::internal::initTemp'
+	 'xf::codec::internal::lehmerCore'.
+INFO: [XFORM 203-712] Applying dataflow to function 'xf::codec::hls_EncodeCoeffOrders' (/home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:445:1), detected/extracted 6 process function(s): 
+	 'entry_proc'
+	 'xf::codec::hls_EncodeCoeffOrders_Block_.split1_proc'
+	 'xf::codec::internal::scanStrategy'
+	 'xf::codec::internal::loadZigzag'
+	 'xf::codec::internal::updateLehmer'
+	 'xf::codec::internal::updateToken'.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (/home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:402:25) in function 'xf::codec::internal::updateToken'... converting 4 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (/home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:402:25) to (/home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:410:13) in function 'xf::codec::internal::updateToken'... converting 4 basic blocks.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0.25 seconds. CPU system time: 0 seconds. Elapsed time: 0.25 seconds; current allocated memory: 365.250 MB.
+WARNING: [HLS 200-960] Cannot flatten loop 'VITIS_LOOP_401_2' (/home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:402:25) in function 'xf::codec::internal::updateToken' more than one sub loop.
+Resolution: For help on HLS 200-960 see www.xilinx.com/cgi-bin/docs/rdoc?v=2021.2;t=hls+guidance;d=200-960.html
+WARNING: [HLS 200-960] Cannot flatten loop 'VITIS_LOOP_398_1' (/home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:398:39) in function 'xf::codec::internal::updateToken' the outer loop is not a perfect loop.
+Resolution: For help on HLS 200-960 see www.xilinx.com/cgi-bin/docs/rdoc?v=2021.2;t=hls+guidance;d=200-960.html
+INFO: [XFORM 203-541] Flattening a loop nest 'CHANNELS' (/home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:290:25) in function 'xf::codec::internal::loadZigzag'.
+WARNING: [HLS 200-960] Cannot flatten loop 'VITIS_LOOP_270_1' (/home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:270:39) in function 'xf::codec::internal::loadZigzag' the outer loop is not a perfect loop because there is nontrivial logic before entering the inner loop.
+Resolution: For help on HLS 200-960 see www.xilinx.com/cgi-bin/docs/rdoc?v=2021.2;t=hls+guidance;d=200-960.html
+WARNING: [HLS 200-960] Cannot flatten loop 'VITIS_LOOP_319_1' (/home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:319:40) in function 'xf::codec::internal::lehmerCore' more than one sub loop.
+Resolution: For help on HLS 200-960 see www.xilinx.com/cgi-bin/docs/rdoc?v=2021.2;t=hls+guidance;d=200-960.html
+INFO: [HLS 200-472] Inferring partial write operation for 'temp' (/home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:307:10)
+INFO: [HLS 200-472] Inferring partial write operation for 'temp.V.1' (/home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:370:13)
+INFO: [HLS 200-472] Inferring partial write operation for 'temp' 
+WARNING: [HLS 200-1614] Cosimulation may deadlock if process loadZigzag has a streamed top-level array input and has predecessor processes. If a deadlock occurs, please consider converting the streamed array into an hls::stream
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0.17 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.19 seconds; current allocated memory: 518.211 MB.
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'top_order_tokenize' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'entry_proc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.05 seconds. CPU system time: 0.03 seconds. Elapsed time: 0.08 seconds; current allocated memory: 518.773 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 518.793 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'scanStrategy_Pipeline_SCAN_STRATEGY' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'SCAN_STRATEGY'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 3, loop 'SCAN_STRATEGY'
+WARNING: [HLS 200-871] Estimated clock period (2.47188ns) exceeds the target (target clock period: 3.33ns, clock uncertainty: 0.8991ns, effective delay budget: 2.4309ns).
+Resolution: For help on HLS 200-871 see www.xilinx.com/cgi-bin/docs/rdoc?v=2021.2;t=hls+guidance;d=200-871.html
+WARNING: [HLS 200-1016] The critical path in module 'scanStrategy_Pipeline_SCAN_STRATEGY' consists of the following:	'load' operation ('order', /home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:222) on array 'xf_codec_internal_kStrategyOrder' [39]  (0.651 ns)
+	'shl' operation ('shl_ln224', /home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:224) [42]  (0.557 ns)
+	'and' operation ('and_ln225', /home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:225) [50]  (0 ns)
+	'icmp' operation ('icmp_ln225', /home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:225) [51]  (0.64 ns)
+	blocking operation 0.624 ns on control path)
+
+Resolution: For help on HLS 200-1016 see www.xilinx.com/cgi-bin/docs/rdoc?v=2021.2;t=hls+guidance;d=200-1016.html
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 520.676 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 520.676 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'scanStrategy' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 520.676 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 520.676 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'loadZigzag_Pipeline_CHANNELS_ZIGZAG_LOOP' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'CHANNELS_ZIGZAG_LOOP'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 5, loop 'CHANNELS_ZIGZAG_LOOP'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 520.750 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 520.750 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'loadZigzag' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 521.355 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 521.355 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'updateLehmer_Pipeline_INIT_TEMP_PING' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'INIT_TEMP_PING'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 1, loop 'INIT_TEMP_PING'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 521.543 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 521.543 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'initTemp' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'INIT_TEMP_PONG'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 1, loop 'INIT_TEMP_PONG'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.02 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.02 seconds; current allocated memory: 521.852 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 521.852 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'lehmerCore_Pipeline_LEHMER_LOOP0' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'LEHMER_LOOP0'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 3, loop 'LEHMER_LOOP0'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 522.066 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 522.066 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'lehmerCore_Pipeline_LEHMER_LOOP1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'LEHMER_LOOP1'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 3, loop 'LEHMER_LOOP1'
+WARNING: [HLS 200-871] Estimated clock period (3.191ns) exceeds the target (target clock period: 3.33ns, clock uncertainty: 0.8991ns, effective delay budget: 2.4309ns).
+Resolution: For help on HLS 200-871 see www.xilinx.com/cgi-bin/docs/rdoc?v=2021.2;t=hls+guidance;d=200-871.html
+WARNING: [HLS 200-1016] The critical path in module 'lehmerCore_Pipeline_LEHMER_LOOP1' consists of the following:	'load' operation ('temp_load') on array 'temp' [26]  (1.2 ns)
+	'select' operation ('reuse_select', /home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:338) [28]  (0 ns)
+	'add' operation ('add_ln885') [29]  (0.785 ns)
+	'store' operation ('temp_addr_write_ln885') of variable 'add_ln885' on array 'temp' [30]  (1.2 ns)
+
+Resolution: For help on HLS 200-1016 see www.xilinx.com/cgi-bin/docs/rdoc?v=2021.2;t=hls+guidance;d=200-1016.html
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 522.289 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 522.289 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'lehmerCore' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 522.617 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 522.617 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'updateCore' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.06 seconds; current allocated memory: 522.617 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 522.617 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'updateLehmer' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.07 seconds. CPU system time: 0 seconds. Elapsed time: 0.07 seconds; current allocated memory: 523.164 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.06 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.07 seconds; current allocated memory: 523.164 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'updateToken_Pipeline_TOKEN_LOOP' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'TOKEN_LOOP'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 4, loop 'TOKEN_LOOP'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.1 seconds. CPU system time: 0 seconds. Elapsed time: 0.11 seconds; current allocated memory: 523.605 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 523.605 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'updateToken_Pipeline_TOKEN_LEFTOVER' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'TOKEN_LEFTOVER'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 2, loop 'TOKEN_LEFTOVER'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 524.098 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 524.098 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'updateToken' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 524.250 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.07 seconds. CPU system time: 0 seconds. Elapsed time: 0.06 seconds; current allocated memory: 524.250 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'hls_EncodeCoeffOrders' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.1 seconds. CPU system time: 0 seconds. Elapsed time: 0.09 seconds; current allocated memory: 524.250 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.09 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.09 seconds; current allocated memory: 524.250 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'top_order_tokenize' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.18 seconds. CPU system time: 0 seconds. Elapsed time: 0.18 seconds; current allocated memory: 524.289 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.07 seconds. CPU system time: 0 seconds. Elapsed time: 0.07 seconds; current allocated memory: 524.375 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'entry_proc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'entry_proc'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.17 seconds. CPU system time: 0 seconds. Elapsed time: 0.18 seconds; current allocated memory: 524.492 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'scanStrategy_Pipeline_SCAN_STRATEGY' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'scanStrategy_Pipeline_SCAN_STRATEGY_xf_codec_internal_kStrategyOrder_ROM_AUTO_1R' to 'scanStrategy_Pipeline_SCAN_STRATEGY_xf_codec_internal_kStrategyOrder_ROM_AUTObkb' due to the length limit 80
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'scanStrategy_Pipeline_SCAN_STRATEGY' pipeline 'SCAN_STRATEGY' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'scanStrategy_Pipeline_SCAN_STRATEGY'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 525.344 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'scanStrategy' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'scanStrategy'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.15 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.15 seconds; current allocated memory: 526.949 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'loadZigzag_Pipeline_CHANNELS_ZIGZAG_LOOP' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'loadZigzag_Pipeline_CHANNELS_ZIGZAG_LOOP_xf_codec_internal_coeffOrderLut_ROM_AUTO_1R' to 'loadZigzag_Pipeline_CHANNELS_ZIGZAG_LOOP_xf_codec_internal_coeffOrderLut_ROM_cud' due to the length limit 80
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'loadZigzag_Pipeline_CHANNELS_ZIGZAG_LOOP' pipeline 'CHANNELS_ZIGZAG_LOOP' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'loadZigzag_Pipeline_CHANNELS_ZIGZAG_LOOP'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 527.586 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'loadZigzag' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Generating core module 'mux_2568_32_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'loadZigzag'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.08 seconds. CPU system time: 0 seconds. Elapsed time: 0.08 seconds; current allocated memory: 529.480 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'updateLehmer_Pipeline_INIT_TEMP_PING' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'updateLehmer_Pipeline_INIT_TEMP_PING'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.06 seconds. CPU system time: 0 seconds. Elapsed time: 0.06 seconds; current allocated memory: 530.492 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'initTemp' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'initTemp'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 531.035 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'lehmerCore_Pipeline_LEHMER_LOOP0' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'lehmerCore_Pipeline_LEHMER_LOOP0' pipeline 'LEHMER_LOOP0' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'lehmerCore_Pipeline_LEHMER_LOOP0'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.04 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.04 seconds; current allocated memory: 531.723 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'lehmerCore_Pipeline_LEHMER_LOOP1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'lehmerCore_Pipeline_LEHMER_LOOP1' pipeline 'LEHMER_LOOP1' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'lehmerCore_Pipeline_LEHMER_LOOP1'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.06 seconds. CPU system time: 0 seconds. Elapsed time: 0.06 seconds; current allocated memory: 532.527 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'lehmerCore' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'lehmerCore'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.08 seconds. CPU system time: 0 seconds. Elapsed time: 0.08 seconds; current allocated memory: 533.516 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'updateCore' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'updateCore'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.09 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.1 seconds; current allocated memory: 534.426 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'updateLehmer' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'updateLehmer'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.09 seconds. CPU system time: 0 seconds. Elapsed time: 0.1 seconds; current allocated memory: 535.332 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'updateToken_Pipeline_TOKEN_LOOP' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'updateToken_Pipeline_TOKEN_LOOP' pipeline 'TOKEN_LOOP' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'updateToken_Pipeline_TOKEN_LOOP'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.19 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.2 seconds; current allocated memory: 536.711 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'updateToken_Pipeline_TOKEN_LEFTOVER' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'updateToken_Pipeline_TOKEN_LEFTOVER' pipeline 'TOKEN_LEFTOVER' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'updateToken_Pipeline_TOKEN_LEFTOVER'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.13 seconds. CPU system time: 0 seconds. Elapsed time: 0.12 seconds; current allocated memory: 537.652 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'updateToken' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'updateToken'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 538.539 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'hls_EncodeCoeffOrders' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'hls_EncodeCoeffOrders'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.16 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.17 seconds; current allocated memory: 540.316 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'top_order_tokenize' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'top_order_tokenize/used_orders' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'top_order_tokenize/orderStrm' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'top_order_tokenize/tokenStrm' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'top_order_tokenize/e_tokenStrm' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'top_order_tokenize' to 'ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'top_order_tokenize'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.24 seconds. CPU system time: 0 seconds. Elapsed time: 0.24 seconds; current allocated memory: 541.180 MB.
+INFO: [RTMG 210-279] Implementing memory 'top_order_tokenize_scanStrategy_Pipeline_SCAN_STRATEGY_xf_codec_internal_kStrategyOrder_ROM_AUTObkb' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'top_order_tokenize_loadZigzag_Pipeline_CHANNELS_ZIGZAG_LOOP_xf_codec_internal_coeffOrderLut_ROM_cud' using auto ROMs.
+INFO: [RTMG 210-278] Implementing memory 'top_order_tokenize_updateLehmer_temp_V_RAM_2P_BRAM_1R1W_ram (RAM_2P_BRAM)' using block RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'used_orders_c_U(top_order_tokenize_fifo_w13_d3_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'strategyStrm_U(top_order_tokenize_fifo_w8_d32_D)' using Distributed RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'skipStrm_0_U(top_order_tokenize_fifo_w32_d32_D)' using Distributed RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'skipStrm_1_U(top_order_tokenize_fifo_w32_d32_D)' using Distributed RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'skipStrm_2_U(top_order_tokenize_fifo_w32_d32_D)' using Distributed RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'num_strategy_V_c15_channel_U(top_order_tokenize_fifo_w32_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'zigzagStrm_U(top_order_tokenize_fifo_w32_d128_D)' using Distributed RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'num_strategy_V_c14_U(top_order_tokenize_fifo_w32_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'endStrm_U(top_order_tokenize_fifo_w32_d32_D)' using Distributed RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'lehmerStrm_U(top_order_tokenize_fifo_w32_d1024_D)' using Distributed RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'num_strategy_V_c_U(top_order_tokenize_fifo_w32_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'start_for_scanStrategy_U0_U(top_order_tokenize_start_for_scanStrategy_U0)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'start_for_updateLehmer_U0_U(top_order_tokenize_start_for_updateLehmer_U0)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'start_for_updateToken_U0_U(top_order_tokenize_start_for_updateToken_U0)' using Shift Registers.
+INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 0.96 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.99 seconds; current allocated memory: 544.418 MB.
+INFO: [HLS 200-111] Finished Updating report files: CPU user time: 0.36 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.37 seconds; current allocated memory: 548.648 MB.
+INFO: [VHDL 208-304] Generating VHDL RTL for top_order_tokenize.
+INFO: [VLOG 209-307] Generating Verilog RTL for top_order_tokenize.
+INFO: [HLS 200-789] **** Estimated Fmax: 313.38 MHz
+INFO: [HLS 200-111] Finished Command csynth_design CPU user time: 12.58 seconds. CPU system time: 0.69 seconds. Elapsed time: 12.82 seconds; current allocated memory: -669.641 MB.
+INFO: [HLS 200-112] Total CPU user time: 14.45 seconds. Total CPU system time: 1.02 seconds. Total elapsed time: 14.22 seconds; peak allocated memory: 1.191 GB.
+INFO: [Common 17-206] Exiting vitis_hls at Sat Feb  4 13:37:05 2023...
+janethamrani@superlu:~/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize$ make run COSIM=1
+Configured: settings.tcl
+----
+set XPART xcu280-fsvh2892-2L-e
+set CSIM 0
+set CSYNTH 1
+set COSIM 1
+set VIVADO_SYN 0
+set VIVADO_IMPL 0
+set XF_PROJ_ROOT "/home/janethamrani/Vitis_Libraries/codec"
+set CUR_DIR "/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize"
+----
+vitis_hls -f run_hls.tcl;
+
+****** Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2021.2 (64-bit)
+  **** SW Build 3367213 on Tue Oct 19 02:47:39 MDT 2021
+  **** IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+    ** Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+
+source /tools/Xilinx/Vitis_HLS/2021.2/scripts/vitis_hls/hls.tcl -notrace
+INFO: Applying HLS Y2K22 patch v1.2 for IP revision
+INFO: [HLS 200-10] Running '/tools/Xilinx/Vitis_HLS/2021.2/bin/unwrapped/lnx64.o/vitis_hls'
+INFO: [HLS 200-10] For user 'janethamrani' on host 'superlu' (Linux_x86_64 version 5.4.0-137-generic) on Sat Feb 04 13:38:26 EST 2023
+INFO: [HLS 200-10] On os Ubuntu 18.04.6 LTS
+INFO: [HLS 200-10] In directory '/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize'
+Sourcing Tcl script 'run_hls.tcl'
+INFO: [HLS 200-1510] Running: open_project -reset tokenize.prj 
+INFO: [HLS 200-10] Opening and resetting project '/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/tokenize.prj'.
+WARNING: [HLS 200-40] No /home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/tokenize.prj/solution1/solution1.aps file found.
+INFO: [HLS 200-1510] Running: add_files kernel/topOrderTokenize.cpp -cflags -I/home/janethamrani/Vitis_Libraries/codec/L1/include -I/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/kernel 
+INFO: [HLS 200-10] Adding design file 'kernel/topOrderTokenize.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files -tb host/test_orderTokenize.cpp -cflags -I/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/kernel 
+INFO: [HLS 200-10] Adding test bench file 'host/test_orderTokenize.cpp' to the project
+INFO: [HLS 200-1510] Running: set_top top_order_tokenize 
+INFO: [HLS 200-1510] Running: open_solution -reset solution1 
+INFO: [HLS 200-10] Creating and opening solution '/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/tokenize.prj/solution1'.
+INFO: [HLS 200-10] Cleaning up the solution database.
+WARNING: [HLS 200-40] No /home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/tokenize.prj/solution1/solution1.aps file found.
+INFO: [HLS 200-1505] Using default flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see www.xilinx.com/cgi-bin/docs/rdoc?v=2021.2;t=hls+guidance;d=200-1505.html
+INFO: [HLS 200-1510] Running: set_part xcu280-fsvh2892-2L-e 
+INFO: [HLS 200-1611] Setting target device to 'xcu280-fsvh2892-2L-e'
+INFO: [HLS 200-1510] Running: create_clock -period 3.33 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 3.33ns.
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 1.191 GB.
+INFO: [HLS 200-10] Analyzing design file 'kernel/topOrderTokenize.cpp' ... 
+WARNING: [HLS 207-5523] 'Resource pragma' is deprecated, use 'bind_op/bind_storage pragma' instead (/home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:365:9)
+WARNING: [HLS 207-5523] 'Resource pragma' is deprecated, use 'bind_op/bind_storage pragma' instead (/home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:448:9)
+WARNING: [HLS 207-5523] 'Resource pragma' is deprecated, use 'bind_op/bind_storage pragma' instead (/home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:454:9)
+WARNING: [HLS 207-5523] 'Resource pragma' is deprecated, use 'bind_op/bind_storage pragma' instead (/home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:460:9)
+WARNING: [HLS 207-5523] 'Resource pragma' is deprecated, use 'bind_op/bind_storage pragma' instead (/home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:466:9)
+WARNING: [HLS 207-5523] 'Resource pragma' is deprecated, use 'bind_op/bind_storage pragma' instead (/home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:472:9)
+WARNING: [HLS 214-113] Either use an argument of the function or declare the variable inside the dataflow loop body (/home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:476:28)
+Resolution: For help on HLS 214-113 see www.xilinx.com/cgi-bin/docs/rdoc?v=2021.2;t=hls+guidance;d=214-113.html
+WARNING: [HLS 200-471] Dataflow form checks found 1 issue(s) in file kernel/topOrderTokenize.cpp
+Resolution: For help on HLS 200-471 see www.xilinx.com/cgi-bin/docs/rdoc?v=2021.2;t=hls+guidance;d=200-471.html
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 4.39 seconds. CPU system time: 0.3 seconds. Elapsed time: 4.14 seconds; current allocated memory: 283.973 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
+INFO: [HLS 214-284] Auto array partition mode is set into default.
+WARNING: [HLS 214-172] Cannot apply disaggregate pragma/directive on stream object 'lehmerStrm' as it needs to be read/written in its entirety
+WARNING: [HLS 214-172] Cannot apply disaggregate pragma/directive on stream object 'endStrm' as it needs to be read/written in its entirety
+WARNING: [HLS 214-172] Cannot apply disaggregate pragma/directive on stream object 'zigzagStrm' as it needs to be read/written in its entirety
+WARNING: [HLS 214-172] Cannot apply disaggregate pragma/directive on stream object 'strategyStrm' as it needs to be read/written in its entirety
+INFO: [HLS 214-178] Inlining function 'xf::codec::internal::HybridUint::HybridUint(ap_uint<32>, ap_uint<32>, ap_uint<32>)' into 'xf::codec::internal::hls_CoeffOrderContext(ap_uint<32>)' (/home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:204:0)
+INFO: [HLS 214-178] Inlining function 'xf::codec::internal::hls_Encode(xf::codec::internal::HybridUint&, ap_uint<32>, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&)' into 'xf::codec::internal::hls_CoeffOrderContext(ap_uint<32>)' (/home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:204:0)
+INFO: [HLS 214-248] Applying array_partition to 'temp': Complete partitioning on dimension 1. (/home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:364:17)
+INFO: [HLS 214-248] Applying array_partition to 'skipStrm': Complete partitioning on dimension 1. (/home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:457:28)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'skipStrm_0' with compact=bit mode in 32-bits (/home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:457:28)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'skipStrm_1' with compact=bit mode in 32-bits (/home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:457:28)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'skipStrm_2' with compact=bit mode in 32-bits (/home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:457:28)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'e_tokenStrm' with compact=bit mode in 1-bits (kernel/topOrderTokenize.cpp:22:0)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'tokenStrm' with compact=bit mode in 64-bits (kernel/topOrderTokenize.cpp:22:0)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'orderStrm' with compact=bit mode in 32-bits (kernel/topOrderTokenize.cpp:22:0)
+INFO: [HLS 214-270] Starting automatic array partition analysis...
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i8.s_struct.ap_uint<8>s' into 'xf::codec::internal::scanStrategy(unsigned short, ap_uint<32>&, hls::stream<ap_uint<8>, 0>&, hls::stream<ap_uint<32>, 0>*) (.1)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173:9)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i32.s_struct.ssdm_int<32, false>s' into '_llvm.fpga.unpack.bits.s_struct.ap_uint<32>s.i32.1'
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.unpack.bits.s_struct.ap_uint<32>s.i32.1' into 'xf::codec::internal::loadZigzag(ap_uint<32>&, hls::stream<ap_uint<8>, 0>&, hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<32>, 0>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:144:9)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i32.s_struct.ap_uint<32>s' into 'xf::codec::internal::loadZigzag(ap_uint<32>&, hls::stream<ap_uint<8>, 0>&, hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<32>, 0>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173:9)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i32.s_struct.ap_uint<32>s' into 'xf::codec::internal::lehmerCore(ap_uint<32>, ap_uint<32>, ap_uint<16>*, ap_uint<32>&, hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<32>, 0>&) (.36.43.50.57.77.85.1)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173:9)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.unpack.bits.s_struct.ap_uint<32>s.i32.1' into 'xf::codec::internal::updateLehmer(ap_uint<32>, hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<32>, 0>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:144:9)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i32.s_struct.ap_uint<32>s' into 'xf::codec::internal::updateLehmer(ap_uint<32>, hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<32>, 0>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173:9)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.unpack.bits.s_struct.ap_uint<32>s.i32.1' into 'xf::codec::internal::updateToken(ap_uint<32>, hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<64>, 0>&, hls::stream<bool, 0>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:144:9)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i64.s_struct.ap_uint<64>s' into 'xf::codec::internal::updateToken(ap_uint<32>, hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<64>, 0>&, hls::stream<bool, 0>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173:9)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 2.88 seconds. CPU system time: 0.23 seconds. Elapsed time: 3.12 seconds; current allocated memory: 284.719 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 284.719 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0.06 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.08 seconds; current allocated memory: 299.844 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [XFORM 203-602] Inlining function 'xf::codec::internal::hls_CoeffOrderContext' into 'xf::codec::internal::updateToken' (/home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:403) automatically.
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0.12 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.13 seconds; current allocated memory: 321.633 MB.
+INFO: [XFORM 203-602] Inlining function 'xf::codec::internal::hls_CoeffOrderContext' into 'xf::codec::internal::updateToken' (/home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:403) automatically.
+INFO: [XFORM 203-712] Applying dataflow to function 'xf::codec::internal::updateCore' (/home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:353:1), detected/extracted 2 process function(s): 
+	 'xf::codec::internal::initTemp'
+	 'xf::codec::internal::lehmerCore'.
+INFO: [XFORM 203-712] Applying dataflow to function 'xf::codec::hls_EncodeCoeffOrders' (/home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:445:1), detected/extracted 6 process function(s): 
+	 'entry_proc'
+	 'xf::codec::hls_EncodeCoeffOrders_Block_.split1_proc'
+	 'xf::codec::internal::scanStrategy'
+	 'xf::codec::internal::loadZigzag'
+	 'xf::codec::internal::updateLehmer'
+	 'xf::codec::internal::updateToken'.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (/home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:402:25) in function 'xf::codec::internal::updateToken'... converting 4 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (/home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:402:25) to (/home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:410:13) in function 'xf::codec::internal::updateToken'... converting 4 basic blocks.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0.23 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.25 seconds; current allocated memory: 365.152 MB.
+WARNING: [HLS 200-960] Cannot flatten loop 'VITIS_LOOP_401_2' (/home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:402:25) in function 'xf::codec::internal::updateToken' more than one sub loop.
+Resolution: For help on HLS 200-960 see www.xilinx.com/cgi-bin/docs/rdoc?v=2021.2;t=hls+guidance;d=200-960.html
+WARNING: [HLS 200-960] Cannot flatten loop 'VITIS_LOOP_398_1' (/home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:398:39) in function 'xf::codec::internal::updateToken' the outer loop is not a perfect loop.
+Resolution: For help on HLS 200-960 see www.xilinx.com/cgi-bin/docs/rdoc?v=2021.2;t=hls+guidance;d=200-960.html
+INFO: [XFORM 203-541] Flattening a loop nest 'CHANNELS' (/home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:290:25) in function 'xf::codec::internal::loadZigzag'.
+WARNING: [HLS 200-960] Cannot flatten loop 'VITIS_LOOP_270_1' (/home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:270:39) in function 'xf::codec::internal::loadZigzag' the outer loop is not a perfect loop because there is nontrivial logic before entering the inner loop.
+Resolution: For help on HLS 200-960 see www.xilinx.com/cgi-bin/docs/rdoc?v=2021.2;t=hls+guidance;d=200-960.html
+WARNING: [HLS 200-960] Cannot flatten loop 'VITIS_LOOP_319_1' (/home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:319:40) in function 'xf::codec::internal::lehmerCore' more than one sub loop.
+Resolution: For help on HLS 200-960 see www.xilinx.com/cgi-bin/docs/rdoc?v=2021.2;t=hls+guidance;d=200-960.html
+INFO: [HLS 200-472] Inferring partial write operation for 'temp' (/home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:307:10)
+INFO: [HLS 200-472] Inferring partial write operation for 'temp.V.1' (/home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:370:13)
+INFO: [HLS 200-472] Inferring partial write operation for 'temp' 
+WARNING: [HLS 200-1614] Cosimulation may deadlock if process loadZigzag has a streamed top-level array input and has predecessor processes. If a deadlock occurs, please consider converting the streamed array into an hls::stream
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0.17 seconds. CPU system time: 0.03 seconds. Elapsed time: 0.19 seconds; current allocated memory: 518.211 MB.
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'top_order_tokenize' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'entry_proc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.05 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.07 seconds; current allocated memory: 518.770 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 518.789 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'scanStrategy_Pipeline_SCAN_STRATEGY' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'SCAN_STRATEGY'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 3, loop 'SCAN_STRATEGY'
+WARNING: [HLS 200-871] Estimated clock period (2.47188ns) exceeds the target (target clock period: 3.33ns, clock uncertainty: 0.8991ns, effective delay budget: 2.4309ns).
+Resolution: For help on HLS 200-871 see www.xilinx.com/cgi-bin/docs/rdoc?v=2021.2;t=hls+guidance;d=200-871.html
+WARNING: [HLS 200-1016] The critical path in module 'scanStrategy_Pipeline_SCAN_STRATEGY' consists of the following:	'load' operation ('order', /home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:222) on array 'xf_codec_internal_kStrategyOrder' [39]  (0.651 ns)
+	'shl' operation ('shl_ln224', /home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:224) [42]  (0.557 ns)
+	'and' operation ('and_ln225', /home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:225) [50]  (0 ns)
+	'icmp' operation ('icmp_ln225', /home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:225) [51]  (0.64 ns)
+	blocking operation 0.624 ns on control path)
+
+Resolution: For help on HLS 200-1016 see www.xilinx.com/cgi-bin/docs/rdoc?v=2021.2;t=hls+guidance;d=200-1016.html
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 520.672 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 520.672 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'scanStrategy' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 520.672 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 520.672 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'loadZigzag_Pipeline_CHANNELS_ZIGZAG_LOOP' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'CHANNELS_ZIGZAG_LOOP'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 5, loop 'CHANNELS_ZIGZAG_LOOP'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 520.746 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 520.746 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'loadZigzag' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 521.352 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 521.352 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'updateLehmer_Pipeline_INIT_TEMP_PING' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'INIT_TEMP_PING'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 1, loop 'INIT_TEMP_PING'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 521.617 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 521.617 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'initTemp' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'INIT_TEMP_PONG'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 1, loop 'INIT_TEMP_PONG'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.02 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.02 seconds; current allocated memory: 521.848 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 521.848 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'lehmerCore_Pipeline_LEHMER_LOOP0' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'LEHMER_LOOP0'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 3, loop 'LEHMER_LOOP0'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 522.062 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 522.062 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'lehmerCore_Pipeline_LEHMER_LOOP1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'LEHMER_LOOP1'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 3, loop 'LEHMER_LOOP1'
+WARNING: [HLS 200-871] Estimated clock period (3.191ns) exceeds the target (target clock period: 3.33ns, clock uncertainty: 0.8991ns, effective delay budget: 2.4309ns).
+Resolution: For help on HLS 200-871 see www.xilinx.com/cgi-bin/docs/rdoc?v=2021.2;t=hls+guidance;d=200-871.html
+WARNING: [HLS 200-1016] The critical path in module 'lehmerCore_Pipeline_LEHMER_LOOP1' consists of the following:	'load' operation ('temp_load') on array 'temp' [26]  (1.2 ns)
+	'select' operation ('reuse_select', /home/janethamrani/Vitis_Libraries/codec/L1/include/hls_EncodeCoeffOrders.hpp:338) [28]  (0 ns)
+	'add' operation ('add_ln885') [29]  (0.785 ns)
+	'store' operation ('temp_addr_write_ln885') of variable 'add_ln885' on array 'temp' [30]  (1.2 ns)
+
+Resolution: For help on HLS 200-1016 see www.xilinx.com/cgi-bin/docs/rdoc?v=2021.2;t=hls+guidance;d=200-1016.html
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 522.309 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 522.309 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'lehmerCore' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 522.613 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 522.613 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'updateCore' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 522.613 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 522.613 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'updateLehmer' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.07 seconds. CPU system time: 0 seconds. Elapsed time: 0.07 seconds; current allocated memory: 523.137 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.06 seconds. CPU system time: 0 seconds. Elapsed time: 0.07 seconds; current allocated memory: 523.137 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'updateToken_Pipeline_TOKEN_LOOP' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'TOKEN_LOOP'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 4, loop 'TOKEN_LOOP'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.11 seconds. CPU system time: 0 seconds. Elapsed time: 0.1 seconds; current allocated memory: 523.582 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 523.582 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'updateToken_Pipeline_TOKEN_LEFTOVER' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'TOKEN_LEFTOVER'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 2, loop 'TOKEN_LEFTOVER'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 524.020 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 524.020 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'updateToken' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.05 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.05 seconds; current allocated memory: 524.250 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.06 seconds. CPU system time: 0 seconds. Elapsed time: 0.06 seconds; current allocated memory: 524.250 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'hls_EncodeCoeffOrders' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.1 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.09 seconds; current allocated memory: 524.250 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.09 seconds. CPU system time: 0 seconds. Elapsed time: 0.1 seconds; current allocated memory: 524.250 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'top_order_tokenize' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.17 seconds. CPU system time: 0 seconds. Elapsed time: 0.18 seconds; current allocated memory: 524.363 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.08 seconds. CPU system time: 0 seconds. Elapsed time: 0.07 seconds; current allocated memory: 524.371 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'entry_proc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'entry_proc'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.17 seconds. CPU system time: 0 seconds. Elapsed time: 0.17 seconds; current allocated memory: 524.488 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'scanStrategy_Pipeline_SCAN_STRATEGY' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'scanStrategy_Pipeline_SCAN_STRATEGY_xf_codec_internal_kStrategyOrder_ROM_AUTO_1R' to 'scanStrategy_Pipeline_SCAN_STRATEGY_xf_codec_internal_kStrategyOrder_ROM_AUTObkb' due to the length limit 80
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'scanStrategy_Pipeline_SCAN_STRATEGY' pipeline 'SCAN_STRATEGY' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'scanStrategy_Pipeline_SCAN_STRATEGY'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 525.340 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'scanStrategy' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'scanStrategy'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.15 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.16 seconds; current allocated memory: 526.945 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'loadZigzag_Pipeline_CHANNELS_ZIGZAG_LOOP' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SYN 201-210] Renamed object name 'loadZigzag_Pipeline_CHANNELS_ZIGZAG_LOOP_xf_codec_internal_coeffOrderLut_ROM_AUTO_1R' to 'loadZigzag_Pipeline_CHANNELS_ZIGZAG_LOOP_xf_codec_internal_coeffOrderLut_ROM_cud' due to the length limit 80
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'loadZigzag_Pipeline_CHANNELS_ZIGZAG_LOOP' pipeline 'CHANNELS_ZIGZAG_LOOP' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'loadZigzag_Pipeline_CHANNELS_ZIGZAG_LOOP'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 527.578 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'loadZigzag' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Generating core module 'mux_2568_32_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'loadZigzag'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.09 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.09 seconds; current allocated memory: 529.480 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'updateLehmer_Pipeline_INIT_TEMP_PING' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'updateLehmer_Pipeline_INIT_TEMP_PING'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.06 seconds. CPU system time: 0 seconds. Elapsed time: 0.06 seconds; current allocated memory: 530.488 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'initTemp' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'initTemp'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 531.031 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'lehmerCore_Pipeline_LEHMER_LOOP0' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'lehmerCore_Pipeline_LEHMER_LOOP0' pipeline 'LEHMER_LOOP0' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'lehmerCore_Pipeline_LEHMER_LOOP0'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 531.719 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'lehmerCore_Pipeline_LEHMER_LOOP1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'lehmerCore_Pipeline_LEHMER_LOOP1' pipeline 'LEHMER_LOOP1' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'lehmerCore_Pipeline_LEHMER_LOOP1'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.06 seconds; current allocated memory: 532.523 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'lehmerCore' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'lehmerCore'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.07 seconds. CPU system time: 0 seconds. Elapsed time: 0.07 seconds; current allocated memory: 533.512 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'updateCore' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'updateCore'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.09 seconds. CPU system time: 0 seconds. Elapsed time: 0.09 seconds; current allocated memory: 534.422 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'updateLehmer' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'updateLehmer'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.09 seconds. CPU system time: 0 seconds. Elapsed time: 0.09 seconds; current allocated memory: 535.348 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'updateToken_Pipeline_TOKEN_LOOP' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'updateToken_Pipeline_TOKEN_LOOP' pipeline 'TOKEN_LOOP' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'updateToken_Pipeline_TOKEN_LOOP'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.18 seconds. CPU system time: 0 seconds. Elapsed time: 0.19 seconds; current allocated memory: 536.727 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'updateToken_Pipeline_TOKEN_LEFTOVER' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'updateToken_Pipeline_TOKEN_LEFTOVER' pipeline 'TOKEN_LEFTOVER' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'updateToken_Pipeline_TOKEN_LEFTOVER'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.12 seconds. CPU system time: 0 seconds. Elapsed time: 0.11 seconds; current allocated memory: 537.645 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'updateToken' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'updateToken'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.04 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.05 seconds; current allocated memory: 538.535 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'hls_EncodeCoeffOrders' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'hls_EncodeCoeffOrders'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.16 seconds. CPU system time: 0 seconds. Elapsed time: 0.16 seconds; current allocated memory: 540.316 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'top_order_tokenize' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'top_order_tokenize/used_orders' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'top_order_tokenize/orderStrm' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'top_order_tokenize/tokenStrm' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'top_order_tokenize/e_tokenStrm' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'top_order_tokenize' to 'ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'top_order_tokenize'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.22 seconds. CPU system time: 0 seconds. Elapsed time: 0.22 seconds; current allocated memory: 541.180 MB.
+INFO: [RTMG 210-279] Implementing memory 'top_order_tokenize_scanStrategy_Pipeline_SCAN_STRATEGY_xf_codec_internal_kStrategyOrder_ROM_AUTObkb' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'top_order_tokenize_loadZigzag_Pipeline_CHANNELS_ZIGZAG_LOOP_xf_codec_internal_coeffOrderLut_ROM_cud' using auto ROMs.
+INFO: [RTMG 210-278] Implementing memory 'top_order_tokenize_updateLehmer_temp_V_RAM_2P_BRAM_1R1W_ram (RAM_2P_BRAM)' using block RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'used_orders_c_U(top_order_tokenize_fifo_w13_d3_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'strategyStrm_U(top_order_tokenize_fifo_w8_d32_D)' using Distributed RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'skipStrm_0_U(top_order_tokenize_fifo_w32_d32_D)' using Distributed RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'skipStrm_1_U(top_order_tokenize_fifo_w32_d32_D)' using Distributed RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'skipStrm_2_U(top_order_tokenize_fifo_w32_d32_D)' using Distributed RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'num_strategy_V_c15_channel_U(top_order_tokenize_fifo_w32_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'zigzagStrm_U(top_order_tokenize_fifo_w32_d128_D)' using Distributed RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'num_strategy_V_c14_U(top_order_tokenize_fifo_w32_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'endStrm_U(top_order_tokenize_fifo_w32_d32_D)' using Distributed RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'lehmerStrm_U(top_order_tokenize_fifo_w32_d1024_D)' using Distributed RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'num_strategy_V_c_U(top_order_tokenize_fifo_w32_d2_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'start_for_scanStrategy_U0_U(top_order_tokenize_start_for_scanStrategy_U0)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'start_for_updateLehmer_U0_U(top_order_tokenize_start_for_updateLehmer_U0)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'start_for_updateToken_U0_U(top_order_tokenize_start_for_updateToken_U0)' using Shift Registers.
+INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 0.95 seconds. CPU system time: 0.03 seconds. Elapsed time: 0.97 seconds; current allocated memory: 544.328 MB.
+INFO: [HLS 200-111] Finished Updating report files: CPU user time: 0.35 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.38 seconds; current allocated memory: 548.801 MB.
+INFO: [VHDL 208-304] Generating VHDL RTL for top_order_tokenize.
+INFO: [VLOG 209-307] Generating Verilog RTL for top_order_tokenize.
+INFO: [HLS 200-789] **** Estimated Fmax: 313.38 MHz
+INFO: [HLS 200-111] Finished Command csynth_design CPU user time: 12.48 seconds. CPU system time: 0.74 seconds. Elapsed time: 12.68 seconds; current allocated memory: -669.641 MB.
+INFO: [HLS 200-1510] Running: cosim_design -ldflags -pthread -std=c++11 -argv -i /home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/data/orders.txt -g /home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/data/goldens.txt 
+INFO: [COSIM 212-47] Using XSIM for RTL simulation.
+INFO: [COSIM 212-14] Instrumenting C test bench ...
+make[1]: Entering directory '/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/tokenize.prj/solution1/sim/wrapc'
+   Build using "/tools/Xilinx/Vitis_HLS/2021.2/tps/lnx64/gcc-6.2.0/bin/g++"
+   Compiling topOrderTokenize.cpp_pre.cpp.tb.cpp
+   Compiling apatb_top_order_tokenize_util.cpp
+   Compiling test_orderTokenize.cpp_pre.cpp.tb.cpp
+   Compiling apatb_top_order_tokenize.cpp
+   Compiling apatb_top_order_tokenize_ir.ll
+   Generating cosim.tv.exe
+make[1]: Leaving directory '/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/tokenize.prj/solution1/sim/wrapc'
+INFO: [COSIM 212-302] Starting C TB testing ... 
+
+-----------------Order Tokenize----------------
+INFO: num_orders is 960 
+INFO: Tokenize CSim Pass!
+INFO: [COSIM 212-333] Generating C post check test bench ...
+INFO: [COSIM 212-12] Generating RTL test bench ...
+INFO: [COSIM 212-1] *** C/RTL co-simulation file generation completed. ***
+INFO: [COSIM 212-323] Starting verilog simulation. 
+INFO: [COSIM 212-15] Starting XSIM ...
+Vivado Simulator v2021.2
+Copyright 1986-1999, 2001-2021 Xilinx, Inc. All Rights Reserved.
+Running: /tools/Xilinx/Vivado/2021.2/bin/unwrapped/lnx64.o/xelab xil_defaultlib.apatb_top_order_tokenize_top glbl -Oenable_linking_all_libraries -prj top_order_tokenize.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver -L xpm -L floating_point_v7_0_19 -L floating_point_v7_1_13 --lib ieee_proposed=./ieee_proposed -s top_order_tokenize 
+Multi-threading is on. Using 14 slave threads.
+WARNING: [XSIM 43-3431] One or more environment variables have been detected which affect the operation of the C compiler. These are typically not set in standard installations and are not tested by Xilinx, however they may be appropriate for your system, so the flow will attempt to continue.  If errors occur, try running xelab with the "-mt off -v 1" switches to see more information from the C compiler. The following environment variables have been detected:
+    LIBRARY_PATH
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/tokenize.prj/solution1/sim/verilog/glbl.v" into library work
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/tokenize.prj/solution1/sim/verilog/top_order_tokenize_updateToken_Pipeline_TOKEN_LOOP.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top_order_tokenize_updateToken_Pipeline_TOKEN_LOOP
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/tokenize.prj/solution1/sim/verilog/top_order_tokenize_hls_EncodeCoeffOrders.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top_order_tokenize_hls_EncodeCoeffOrders
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/tokenize.prj/solution1/sim/verilog/top_order_tokenize_fifo_w32_d32_D.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top_order_tokenize_fifo_w32_d32_D_ram
+INFO: [VRFC 10-311] analyzing module top_order_tokenize_fifo_w32_d32_D
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/tokenize.prj/solution1/sim/verilog/AESL_autofifo_tokenStrm.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_autofifo_tokenStrm
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/tokenize.prj/solution1/sim/verilog/top_order_tokenize_lehmerCore.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top_order_tokenize_lehmerCore
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/tokenize.prj/solution1/sim/verilog/top_order_tokenize_scanStrategy_Pipeline_SCAN_STRATEGY_xf_codec_internal_kStrategyOrder_ROM_AUTObkb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top_order_tokenize_scanStrategy_Pipeline_SCAN_STRATEGY_xf_codec_internal_kStrategyOrder_ROM_AUTObkb
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/tokenize.prj/solution1/sim/verilog/top_order_tokenize_start_for_updateLehmer_U0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top_order_tokenize_start_for_updateLehmer_U0_shiftReg
+INFO: [VRFC 10-311] analyzing module top_order_tokenize_start_for_updateLehmer_U0
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/tokenize.prj/solution1/sim/verilog/top_order_tokenize_updateToken_Pipeline_TOKEN_LEFTOVER.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top_order_tokenize_updateToken_Pipeline_TOKEN_LEFTOVER
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/tokenize.prj/solution1/sim/verilog/top_order_tokenize_updateLehmer.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top_order_tokenize_updateLehmer
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/tokenize.prj/solution1/sim/verilog/top_order_tokenize_fifo_w32_d1024_D.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top_order_tokenize_fifo_w32_d1024_D_ram
+INFO: [VRFC 10-311] analyzing module top_order_tokenize_fifo_w32_d1024_D
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/tokenize.prj/solution1/sim/verilog/AESL_deadlock_report_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_deadlock_report_unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/tokenize.prj/solution1/sim/verilog/AESL_autofifo_orderStrm.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_autofifo_orderStrm
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/tokenize.prj/solution1/sim/verilog/top_order_tokenize_fifo_w13_d3_S.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top_order_tokenize_fifo_w13_d3_S_shiftReg
+INFO: [VRFC 10-311] analyzing module top_order_tokenize_fifo_w13_d3_S
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/tokenize.prj/solution1/sim/verilog/AESL_autofifo_e_tokenStrm.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_autofifo_e_tokenStrm
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/tokenize.prj/solution1/sim/verilog/top_order_tokenize_updateToken.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top_order_tokenize_updateToken
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/tokenize.prj/solution1/sim/verilog/top_order_tokenize_lehmerCore_Pipeline_LEHMER_LOOP1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top_order_tokenize_lehmerCore_Pipeline_LEHMER_LOOP1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/tokenize.prj/solution1/sim/verilog/top_order_tokenize_start_for_updateToken_U0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top_order_tokenize_start_for_updateToken_U0_shiftReg
+INFO: [VRFC 10-311] analyzing module top_order_tokenize_start_for_updateToken_U0
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/tokenize.prj/solution1/sim/verilog/top_order_tokenize.autotb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module apatb_top_order_tokenize_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/tokenize.prj/solution1/sim/verilog/AESL_deadlock_detector.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_deadlock_detector
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/tokenize.prj/solution1/sim/verilog/top_order_tokenize_scanStrategy_Pipeline_SCAN_STRATEGY.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top_order_tokenize_scanStrategy_Pipeline_SCAN_STRATEGY
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/tokenize.prj/solution1/sim/verilog/top_order_tokenize_updateLehmer_temp_V_RAM_2P_BRAM_1R1W.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top_order_tokenize_updateLehmer_temp_V_RAM_2P_BRAM_1R1W
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/tokenize.prj/solution1/sim/verilog/top_order_tokenize.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top_order_tokenize
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/tokenize.prj/solution1/sim/verilog/top_order_tokenize_mux_2568_32_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top_order_tokenize_mux_2568_32_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/tokenize.prj/solution1/sim/verilog/top_order_tokenize_loadZigzag.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top_order_tokenize_loadZigzag
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/tokenize.prj/solution1/sim/verilog/top_order_tokenize_fifo_w32_d128_D.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top_order_tokenize_fifo_w32_d128_D_ram
+INFO: [VRFC 10-311] analyzing module top_order_tokenize_fifo_w32_d128_D
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/tokenize.prj/solution1/sim/verilog/top_order_tokenize_flow_control_loop_pipe_sequential_init.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top_order_tokenize_flow_control_loop_pipe_sequential_init
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/tokenize.prj/solution1/sim/verilog/top_order_tokenize_updateLehmer_Pipeline_INIT_TEMP_PING.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top_order_tokenize_updateLehmer_Pipeline_INIT_TEMP_PING
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/tokenize.prj/solution1/sim/verilog/top_order_tokenize_loadZigzag_Pipeline_CHANNELS_ZIGZAG_LOOP.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top_order_tokenize_loadZigzag_Pipeline_CHANNELS_ZIGZAG_LOOP
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/tokenize.prj/solution1/sim/verilog/top_order_tokenize_updateCore.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top_order_tokenize_updateCore
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/tokenize.prj/solution1/sim/verilog/top_order_tokenize_fifo_w32_d2_S.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top_order_tokenize_fifo_w32_d2_S_shiftReg
+INFO: [VRFC 10-311] analyzing module top_order_tokenize_fifo_w32_d2_S
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/tokenize.prj/solution1/sim/verilog/top_order_tokenize_flow_control_loop_pipe.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top_order_tokenize_flow_control_loop_pipe
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/tokenize.prj/solution1/sim/verilog/top_order_tokenize_entry_proc.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top_order_tokenize_entry_proc
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/tokenize.prj/solution1/sim/verilog/top_order_tokenize_lehmerCore_Pipeline_LEHMER_LOOP0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top_order_tokenize_lehmerCore_Pipeline_LEHMER_LOOP0
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/tokenize.prj/solution1/sim/verilog/top_order_tokenize_start_for_scanStrategy_U0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top_order_tokenize_start_for_scanStrategy_U0_shiftReg
+INFO: [VRFC 10-311] analyzing module top_order_tokenize_start_for_scanStrategy_U0
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/tokenize.prj/solution1/sim/verilog/top_order_tokenize_loadZigzag_Pipeline_CHANNELS_ZIGZAG_LOOP_xf_codec_internal_coeffOrderLut_ROM_cud.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top_order_tokenize_loadZigzag_Pipeline_CHANNELS_ZIGZAG_LOOP_xf_codec_internal_coeffOrderLut_ROM_cud
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/tokenize.prj/solution1/sim/verilog/top_order_tokenize_initTemp.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top_order_tokenize_initTemp
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/tokenize.prj/solution1/sim/verilog/top_order_tokenize_fifo_w8_d32_D.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top_order_tokenize_fifo_w8_d32_D_ram
+INFO: [VRFC 10-311] analyzing module top_order_tokenize_fifo_w8_d32_D
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/tokenize.prj/solution1/sim/verilog/top_order_tokenize_scanStrategy.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top_order_tokenize_scanStrategy
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/tokenize.prj/solution1/sim/verilog/AESL_deadlock_detection_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_deadlock_detect_unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/tokenize.prj/solution1/sim/verilog/dataflow_monitor.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dataflow_monitor
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package xil_defaultlib.$unit_dataflow_monitor_sv
+Compiling module xil_defaultlib.top_order_tokenize_entry_proc
+Compiling module xil_defaultlib.top_order_tokenize_scanStrategy_...
+Compiling module xil_defaultlib.top_order_tokenize_flow_control_...
+Compiling module xil_defaultlib.top_order_tokenize_scanStrategy_...
+Compiling module xil_defaultlib.top_order_tokenize_scanStrategy
+Compiling module xil_defaultlib.top_order_tokenize_loadZigzag_Pi...
+Compiling module xil_defaultlib.top_order_tokenize_loadZigzag_Pi...
+Compiling module xil_defaultlib.top_order_tokenize_mux_2568_32_1...
+Compiling module xil_defaultlib.top_order_tokenize_loadZigzag
+Compiling module xil_defaultlib.top_order_tokenize_updateLehmer_...
+Compiling module xil_defaultlib.top_order_tokenize_updateLehmer_...
+Compiling module xil_defaultlib.top_order_tokenize_flow_control_...
+Compiling module xil_defaultlib.top_order_tokenize_initTemp
+Compiling module xil_defaultlib.top_order_tokenize_lehmerCore_Pi...
+Compiling module xil_defaultlib.top_order_tokenize_lehmerCore_Pi...
+Compiling module xil_defaultlib.top_order_tokenize_lehmerCore
+Compiling module xil_defaultlib.top_order_tokenize_updateCore
+Compiling module xil_defaultlib.top_order_tokenize_updateLehmer
+Compiling module xil_defaultlib.top_order_tokenize_updateToken_P...
+Compiling module xil_defaultlib.top_order_tokenize_updateToken_P...
+Compiling module xil_defaultlib.top_order_tokenize_updateToken
+Compiling module xil_defaultlib.top_order_tokenize_fifo_w13_d3_S...
+Compiling module xil_defaultlib.top_order_tokenize_fifo_w13_d3_S
+Compiling module xil_defaultlib.top_order_tokenize_fifo_w8_d32_D...
+Compiling module xil_defaultlib.top_order_tokenize_fifo_w8_d32_D
+Compiling module xil_defaultlib.top_order_tokenize_fifo_w32_d32_...
+Compiling module xil_defaultlib.top_order_tokenize_fifo_w32_d32_...
+Compiling module xil_defaultlib.top_order_tokenize_fifo_w32_d2_S...
+Compiling module xil_defaultlib.top_order_tokenize_fifo_w32_d2_S
+Compiling module xil_defaultlib.top_order_tokenize_fifo_w32_d128...
+Compiling module xil_defaultlib.top_order_tokenize_fifo_w32_d128...
+Compiling module xil_defaultlib.top_order_tokenize_fifo_w32_d102...
+Compiling module xil_defaultlib.top_order_tokenize_fifo_w32_d102...
+Compiling module xil_defaultlib.top_order_tokenize_start_for_sca...
+Compiling module xil_defaultlib.top_order_tokenize_start_for_sca...
+Compiling module xil_defaultlib.top_order_tokenize_start_for_upd...
+Compiling module xil_defaultlib.top_order_tokenize_start_for_upd...
+Compiling module xil_defaultlib.top_order_tokenize_start_for_upd...
+Compiling module xil_defaultlib.top_order_tokenize_start_for_upd...
+Compiling module xil_defaultlib.top_order_tokenize_hls_EncodeCoe...
+Compiling module xil_defaultlib.top_order_tokenize
+Compiling module xil_defaultlib.AESL_autofifo_orderStrm
+Compiling module xil_defaultlib.AESL_autofifo_tokenStrm
+Compiling module xil_defaultlib.AESL_autofifo_e_tokenStrm
+Compiling module xil_defaultlib.AESL_deadlock_detect_unit(PROC_N...
+Compiling module xil_defaultlib.AESL_deadlock_detect_unit(PROC_N...
+Compiling module xil_defaultlib.AESL_deadlock_detect_unit(PROC_N...
+Compiling module xil_defaultlib.AESL_deadlock_detect_unit(PROC_N...
+Compiling module xil_defaultlib.AESL_deadlock_detect_unit(PROC_N...
+Compiling module xil_defaultlib.AESL_deadlock_detect_unit(PROC_N...
+Compiling module xil_defaultlib.AESL_deadlock_detect_unit(PROC_N...
+Compiling module xil_defaultlib.AESL_deadlock_report_unit(PROC_N...
+Compiling module xil_defaultlib.AESL_deadlock_detector_1
+Compiling module xil_defaultlib.df_fifo_intf
+Compiling module xil_defaultlib.df_process_intf
+Compiling module xil_defaultlib.nodf_module_intf
+Compiling module xil_defaultlib.seq_loop_intf(FSM_WIDTH=5)
+Compiling module xil_defaultlib.seq_loop_intf(FSM_WIDTH=8)
+Compiling module xil_defaultlib.seq_loop_intf(FSM_WIDTH=7)
+Compiling module xil_defaultlib.seq_loop_intf(FSM_WIDTH=11)
+Compiling module xil_defaultlib.upc_loop_intf(FSM_WIDTH=1)
+Compiling module xil_defaultlib.dataflow_monitor_1
+Compiling module xil_defaultlib.apatb_top_order_tokenize_top
+Compiling module work.glbl
+Built simulation snapshot top_order_tokenize
+
+****** xsim v2021.2 (64-bit)
+  **** SW Build 3367213 on Tue Oct 19 02:47:39 MDT 2021
+  **** IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+    ** Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+
+source xsim.dir/top_order_tokenize/xsim_script.tcl
+# xsim {top_order_tokenize} -autoloadwcfg -tclbatch {top_order_tokenize.tcl}
+Time resolution is 1 ps
+source top_order_tokenize.tcl
+## run all
+////////////////////////////////////////////////////////////////////////////////////
+// Inter-Transaction Progress: Completed Transaction / Total Transaction
+// Intra-Transaction Progress: Measured Latency / Latency Estimation * 100%
+//
+// RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
+////////////////////////////////////////////////////////////////////////////////////
+// RTL Simulation : 0 / 1 [n/a] @ "109000"
+// RTL Simulation : 1 / 1 [n/a] @ "58432000"
+////////////////////////////////////////////////////////////////////////////////////
+$finish called at time : 58451670 ps : File "/home/janethamrani/Vitis_Libraries/codec/L1/tests/jxlEnc/order_tokenize/tokenize.prj/solution1/sim/verilog/top_order_tokenize.autotb.v" Line 386
+## quit
+INFO: [Common 17-206] Exiting xsim at Sat Feb  4 13:39:02 2023...
+INFO: [COSIM 212-316] Starting C post checking ...
+
+-----------------Order Tokenize----------------
+INFO: num_orders is 960 
+INFO: Tokenize CSim Pass!
+INFO: [COSIM 212-1000] *** C/RTL co-simulation finished: PASS ***
+INFO: [COSIM 212-211] II is measurable only when transaction number is greater than 1 in RTL simulation. Otherwise, they will be marked as all NA. If user wants to calculate them, please make sure there are at least 2 transactions in RTL simulation.
+INFO: [HLS 200-111] Finished Command cosim_design CPU user time: 26.94 seconds. CPU system time: 1.74 seconds. Elapsed time: 23.08 seconds; current allocated memory: 10.758 MB.
+INFO: [HLS 200-112] Total CPU user time: 41.35 seconds. Total CPU system time: 2.82 seconds. Total elapsed time: 37.19 seconds; peak allocated memory: 1.191 GB.
+INFO: [Common 17-206] Exiting vitis_hls at Sat Feb  4 13:39:03 2023...
+
+```
 
 ### L2 HW run
 ```sh
