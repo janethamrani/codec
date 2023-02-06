@@ -1,6 +1,3 @@
-# JPEGXL Encoding
-### Background
-JXL (JPEG XL) - new file standard that is more compact than JPEG, with a compression ratio of typically 20:1 to 50:1 and supports both lossy and lossless compression
 ### L2 HW run
 ```sh
 Compiling Kernel: JxlEnc_lossy_enc_compute
@@ -1167,4 +1164,46 @@ JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  order_writeout            
 JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  order_finalize_dataflow                                                                             3513    7371    0    0     0
 JxlEnc_lossy_enc_compute_1  JxlEnc_lossy_enc_compute  JxlEnc_lossy_enc_compute                                                                            158136  157867  0    431   36
 -------------------------------------------------------------------------------
+```
+### View Output (Memory Error)
+```sh
+janethamrani@superlu:~$ /home/janethamrani/Vitis_Libraries/codec/L2/demos/jxlEnc/acc_lossy_enc_compute/build_dir.hw.xilinx_u280_xdma_201920_3/host.exe --xclbin /home/janethamrani/Vitis_Libraries/codec/L2/demos/jxlEnc/acc_lossy_enc_compute/build_dir.hw.xilinx_u280_xdma_201920_3/jxlEnc.xclbin /home/janethamrani/Vitis_Libraries/codec/L2/demos/jxlEnc/images/small32x32.png /home/janethamrani/Vitis_Libraries/codec/L2/demos/jxlEnc/acc_lossy_enc_compute/small32x32.jxl
+JPEG XL encoder v0.5.0 61fb7ee [Scalar]
+Read 32x32 image, 5.2 MP/s
+Encoding [Container | VarDCT, d1.000, squirrel | 132-byte Exif | 323-byte XMP], 8 threads.
+Found Platform
+Platform Name: Xilinx
+Info: Context created
+Info: Command queue created
+INFO: Found Device=xilinx_u280_xdma_201920_3
+INFO: Importing /home/janethamrani/Vitis_Libraries/codec/L2/demos/jxlEnc/acc_lossy_enc_compute/build_dir.hw.xilinx_u280_xdma_201920_3/jxlEnc.xclbin
+Loading: '/home/janethamrani/Vitis_Libraries/codec/L2/demos/jxlEnc/acc_lossy_enc_compute/build_dir.hw.xilinx_u280_xdma_201920_3/jxlEnc.xclbin'
+Info: Program created
+Info: Kernel created
+INFO: kernel has been created
+XRT build version: 2.11.634
+Build hash: 5ad5998d67080f00bca5bf15b3838cf35e0a7b26
+Build date: 2021-06-08 22:10:49
+Git branch: 2021.1
+PID: 28236
+UID: 1001
+[Sun Feb  5 21:09:44 2023 GMT]
+HOST: superlu
+EXE: /home/janethamrani/Vitis_Libraries/codec/L2/demos/jxlEnc/acc_lossy_enc_compute/build_dir.hw.xilinx_u280_xdma_201920_3/host.exe
+[XRT] ERROR: std::bad_alloc
+[XRT] ERROR: std::bad_alloc
+[XRT] ERROR: std::bad_alloc
+[XRT] ERROR: std::bad_alloc
+[XRT] ERROR: std::bad_alloc
+[XRT] ERROR: std::bad_alloc
+[XRT] ERROR: std::bad_alloc
+[XRT] ERROR: std::bad_alloc
+[XRT] ERROR: std::bad_alloc
+[XRT] ERROR: std::bad_alloc
+[XRT] ERROR: std::bad_alloc
+[XRT] ERROR: std::bad_alloc
+[XRT] ERROR: std::bad_alloc
+[XRT] ERROR: std::bad_alloc
+[XRT] ERROR: std::bad_alloc
+Segmentation fault (core dumped)
 ```
