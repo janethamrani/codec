@@ -1,6 +1,8 @@
 # JPEGXL Encoding
 ### Background
 JPEG XL (JXL) - new file standard that is more compact than JPEG, with a compression ratio of typically 20:1 to 50:1 and supports both lossy and lossless compression
+
+
 ### L2 HW run
 ```sh
 Compiling Kernel: JxlEnc_lossy_enc_compute
