@@ -2461,3 +2461,8 @@ EXE: /home/janethamrani/Vitis_Libraries/codec/L2/demos/jxlEnc/acc_lossy_enc_comp
 [XRT] ERROR: std::bad_alloc
 Segmentation fault (core dumped)
 ```
+### System Diagram
+![Screenshot from 2023-02-06 11-59-06](https://user-images.githubusercontent.com/26263012/217037839-a5ff265f-8c15-42c5-8f70-6689a4e0c3aa.png)
+### Device Map
+![Screenshot from 2023-02-06 12-03-00](https://user-images.githubusercontent.com/26263012/217038168-f403fb0d-ff32-40e1-9230-37024a366a02.png)
+
