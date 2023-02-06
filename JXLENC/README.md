@@ -1251,6 +1251,117 @@ INFO: [HLS 200-112] Total CPU user time: 41.35 seconds. Total CPU system time: 2
 INFO: [Common 17-206] Exiting vitis_hls at Sat Feb  4 13:39:03 2023...
 
 ```
+### L2 HW_EMU
+```sh
+janethamrani@superlu:~/Vitis_Libraries/codec/L2/demos/jxlEnc/acc_lossy_enc_compute$ make run TARGET=hw_emu
+/bin/sh: 5: [[: not found
+/bin/sh: 9: [[: not found
+/bin/sh: 12: [[: not found
+/bin/sh: 15: [[: not found
+mkdir -p build_dir.hw_emu.xilinx_u280_xdma_201920_3
+rm -rf build_dir.hw_emu.xilinx_u280_xdma_201920_3/makefile_args.txt
+LD_LIBRARY_PATH=:$LD_LIBRARY_PATH \
+XCL_EMULATION_MODE=hw_emu build_dir.hw_emu.xilinx_u280_xdma_201920_3/host.exe --xclbin build_dir.hw_emu.xilinx_u280_xdma_201920_3/jxlEnc.xclbin /home/janethamrani/Vitis_Libraries/codec/L2/demos/jxlEnc/images/small32x32.png small32x32.jxl
+JPEG XL encoder v0.5.0 61fb7ee [Scalar]
+Read 32x32 image, 4.5 MP/s
+Encoding [Container | VarDCT, d1.000, squirrel | 132-byte Exif | 323-byte XMP], 8 threads.
+Found Platform
+Platform Name: Xilinx
+Info: Context created
+Info: Command queue created
+INFO: Found Device=xilinx_u280_xdma_201920_3
+INFO: Importing build_dir.hw_emu.xilinx_u280_xdma_201920_3/jxlEnc.xclbin
+Loading: 'build_dir.hw_emu.xilinx_u280_xdma_201920_3/jxlEnc.xclbin'
+INFO: [HW-EMU 01] Hardware emulation runs simulation underneath. Using a large data set will result in long simulation times. It is recommended that a small dataset is used for faster execution. The flow uses approximate models for Global memories and interconnect and hence the performance data generated is approximate.
+configuring dataflow mode with ert polling
+scheduler config ert(1), dataflow(1), slots(16), cudma(0), cuisr(0), cdma(0), cus(1)
+Info: Program created
+Info: Kernel created
+INFO: kernel has been created
+XRT build version: 2.11.634
+Build hash: 5ad5998d67080f00bca5bf15b3838cf35e0a7b26
+Build date: 2021-06-08 22:10:49
+Git branch: 2021.1
+PID: 15202
+UID: 1001
+[Mon Feb  6 18:34:29 2023 GMT]
+HOST: superlu
+EXE: /home/janethamrani/Vitis_Libraries/codec/L2/demos/jxlEnc/acc_lossy_enc_compute/build_dir.hw_emu.xilinx_u280_xdma_201920_3/host.exe
+[XRT] WARNING: Argument '0' of kernel 'JxlEnc_lossy_enc_compute' is allocated in memory bank 'HBM[14]'; compute unit 'JxlEnc_lossy_enc_compute_1' cannot be used with this argument and is ignored.
+[XRT] ERROR: kernel 'JxlEnc_lossy_enc_compute' has no compute units to support required argument connectivity.
+ERROR: clSetKernelArg() for kernel "JxlEnc_lossy_enc_compute", argument index 0.
+[XRT] ERROR: kernel 'JxlEnc_lossy_enc_compute' has no compute units to support required argument connectivity.
+ERROR: clSetKernelArg() for kernel "JxlEnc_lossy_enc_compute", argument index 1.
+[XRT] ERROR: kernel 'JxlEnc_lossy_enc_compute' has no compute units to support required argument connectivity.
+ERROR: clSetKernelArg() for kernel "JxlEnc_lossy_enc_compute", argument index 2.
+[XRT] ERROR: kernel 'JxlEnc_lossy_enc_compute' has no compute units to support required argument connectivity.
+ERROR: clSetKernelArg() for kernel "JxlEnc_lossy_enc_compute", argument index 3.
+[XRT] ERROR: kernel 'JxlEnc_lossy_enc_compute' has no compute units to support required argument connectivity.
+ERROR: clSetKernelArg() for kernel "JxlEnc_lossy_enc_compute", argument index 4.
+[XRT] ERROR: kernel 'JxlEnc_lossy_enc_compute' has no compute units to support required argument connectivity.
+ERROR: clSetKernelArg() for kernel "JxlEnc_lossy_enc_compute", argument index 5.
+[XRT] ERROR: kernel 'JxlEnc_lossy_enc_compute' has no compute units to support required argument connectivity.
+ERROR: clSetKernelArg() for kernel "JxlEnc_lossy_enc_compute", argument index 6.
+[XRT] ERROR: kernel 'JxlEnc_lossy_enc_compute' has no compute units to support required argument connectivity.
+ERROR: clSetKernelArg() for kernel "JxlEnc_lossy_enc_compute", argument index 7.
+[XRT] ERROR: kernel 'JxlEnc_lossy_enc_compute' has no compute units to support required argument connectivity.
+ERROR: clSetKernelArg() for kernel "JxlEnc_lossy_enc_compute", argument index 8.
+[XRT] ERROR: kernel 'JxlEnc_lossy_enc_compute' has no compute units to support required argument connectivity.
+ERROR: clSetKernelArg() for kernel "JxlEnc_lossy_enc_compute", argument index 9.
+[XRT] ERROR: kernel 'JxlEnc_lossy_enc_compute' has no compute units to support required argument connectivity.
+ERROR: clSetKernelArg() for kernel "JxlEnc_lossy_enc_compute", argument index 10.
+[XRT] ERROR: kernel 'JxlEnc_lossy_enc_compute' has no compute units to support required argument connectivity.
+ERROR: clSetKernelArg() for kernel "JxlEnc_lossy_enc_compute", argument index 11.
+[XRT] ERROR: kernel 'JxlEnc_lossy_enc_compute' has no compute units to support required argument connectivity.
+ERROR: clSetKernelArg() for kernel "JxlEnc_lossy_enc_compute", argument index 12.
+[XRT] ERROR: kernel 'JxlEnc_lossy_enc_compute' has no compute units to support required argument connectivity.
+ERROR: clSetKernelArg() for kernel "JxlEnc_lossy_enc_compute", argument index 13.
+[XRT] ERROR: kernel 'JxlEnc_lossy_enc_compute' has no compute units to support required argument connectivity.
+ERROR: clSetKernelArg() for kernel "JxlEnc_lossy_enc_compute", argument index 14.
+[XRT] ERROR: kernel 'JxlEnc_lossy_enc_compute' has no compute units to support required argument connectivity.
+ERROR: clSetKernelArg() for kernel "JxlEnc_lossy_enc_compute", argument index 15.
+INFO: Kernel Start
+[XRT] ERROR: Kernel arg 'config_r' is not set
+[XRT] ERROR: event is nullptr
+INFO: Finish kernel execution
+INFO: Finish E2E execution
+-------------------------------------------------------
+INFO: Data transfer from host to device: 13636018 us
+-------------------------------------------------------
+INFO: Kernel1 Data transfer from device to host: 13636018 us
+-------------------------------------------------------
+INFO: Kernel1 execution: 1.3636e+07 us
+-------------------------------------------------------
+INFO: kernel total execution: 13636018 us
+-------------------------------------------------------
+INFO: FPGA execution time:33822711 us
+-------------------------------------------------------
+INFO::[ Vitis-EM 22 ] [Time elapsed: 0 minute(s) 25 seconds, Emulation time: 0.00499267 ms]
+Data transfer between kernel(s) and global memory(s)
+JxlEnc_lossy_enc_compute_1:m_axi_mm1-HBM[0]          RD = 0.000 KB               WR = 0.000 KB        
+JxlEnc_lossy_enc_compute_1:m_axi_mm10-HBM[0]          RD = 0.000 KB               WR = 0.000 KB        
+JxlEnc_lossy_enc_compute_1:m_axi_mm4-HBM[0]          RD = 0.000 KB               WR = 0.000 KB        
+JxlEnc_lossy_enc_compute_1:m_axi_mm5-HBM[0]          RD = 0.000 KB               WR = 0.000 KB        
+JxlEnc_lossy_enc_compute_1:m_axi_mm6-HBM[0]          RD = 0.000 KB               WR = 0.000 KB        
+JxlEnc_lossy_enc_compute_1:m_axi_mm7-HBM[0]          RD = 0.000 KB               WR = 0.000 KB        
+JxlEnc_lossy_enc_compute_1:m_axi_mm8-HBM[0]          RD = 0.000 KB               WR = 0.000 KB        
+JxlEnc_lossy_enc_compute_1:m_axi_mm9-HBM[0]          RD = 0.000 KB               WR = 0.000 KB        
+JxlEnc_lossy_enc_compute_1:m_axi_mm11-HBM[0]          RD = 0.000 KB               WR = 0.000 KB        
+JxlEnc_lossy_enc_compute_1:m_axi_mm12-HBM[0]          RD = 0.000 KB               WR = 0.000 KB        
+JxlEnc_lossy_enc_compute_1:m_axi_mm13-HBM[0]          RD = 0.000 KB               WR = 0.000 KB        
+JxlEnc_lossy_enc_compute_1:m_axi_mm14-HBM[0]          RD = 0.000 KB               WR = 0.000 KB        
+JxlEnc_lossy_enc_compute_1:m_axi_mm15-HBM[0]          RD = 0.000 KB               WR = 0.000 KB        
+JxlEnc_lossy_enc_compute_1:m_axi_mm16-HBM[0]          RD = 0.000 KB               WR = 0.000 KB        
+JxlEnc_lossy_enc_compute_1:m_axi_mm2-HBM[0]          RD = 0.000 KB               WR = 0.000 KB        
+JxlEnc_lossy_enc_compute_1:m_axi_mm3-HBM[0]          RD = 0.000 KB               WR = 0.000 KB        
+
+INFO: [HW-EMU 06-0] Waiting for the simulator process to exit
+INFO: [HW-EMU 06-1] All the simulator processes exited successfully
+/home/janethamrani/Vitis_Libraries/codec/L2/demos/jxlEnc/third_partys/lib/jxl/ac_strategy.h:196: JXL_DASSERT: IsMultiblock() || is_first == true
+Illegal instruction (core dumped)
+Makefile:259: recipe for target 'run' failed
+make: *** [run] Error 132
+```
 
 ### L2 HW run
 ```sh
