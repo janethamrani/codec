@@ -296,3 +296,8 @@ Luma PSNR = 28.26 dB, U chroma PSNR = 42.46 dB, V chroma PSNR = 43.09 dB
 Average Luma PSNR = 28.02 dB, U chroma PSNR = 42.23 dB, V chroma PSNR = 43.14 dB
 
 ```
+### Output YUV File
+![image](https://user-images.githubusercontent.com/26263012/218281477-5e9141f9-a909-44b9-9f42-35226c2c1354.png)
+### Output H264 File 
+![image](https://user-images.githubusercontent.com/26263012/218281518-139260e8-01e7-4389-8458-499109e758de.png)
+
