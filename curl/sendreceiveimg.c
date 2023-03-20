@@ -1,4 +1,11 @@
 #Code to send the receive image file (png)
+#Not working -- 
+/*<title>405 Method Not Allowed</title>
+</head><body>
+<h1>Method Not Allowed</h1>
+<p>The requested method PUT is not allowed for this URL.</p>
+*/
+
 
 #include <stdio.h>
 #include <curl/curl.h>
